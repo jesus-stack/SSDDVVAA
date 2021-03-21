@@ -1,0 +1,62 @@
+.logo{
+   border-radius: 50%;
+   width: 100px;
+}
+.icon{
+    width: 25px;
+}
+
+
+.itemlabel{
+    font-size: 25px;
+    margin-left: 10px;
+    font-weight: bold;
+  cursor: pointer;
+
+}
+.itemlabelM{
+    font-size: 2opx;
+    margin-left: 8px;
+    color: white;
+    font-weight: bold;
+      cursor: pointer;
+
+}
+.itemlabelMIE{
+   
+    color: green;
+    cursor: pointer;
+
+}
+.itemlabelMID{
+     cursor: pointer;
+    
+    color: red;
+
+
+}
+
+
+.login:hover{
+    background-color: #A1D8F1;
+}
+.login{
+    position: fixed;
+    left: 85vw;
+    background-color: #2E90BD;
+}
+.mantenimiento{
+        background-color: #2E90BD;
+        margin-top: 5px;
+        color: white;
+        font-weight: bold;
+}
+.mantenimiento:hover{
+
+    background-color: #A1D8F1;
+    
+}
+    .itemlabelM:hover{
+    color: black;
+    text-decoration: underline;
+}

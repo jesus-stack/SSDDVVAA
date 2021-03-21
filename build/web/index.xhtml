@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+
+        <ui:composition template="/frame.xhtml">
+            <ui:define name="content">
+              
+              
+                  
+                    <table border="0" cellspacing="36" cellpadding="15">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h>Bienvenido al sistema digital de ventas</h>
+                                
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h2>Aqui podras encontrar los alimentos que necesitas para tu negocio 
+                                    o para disfrutar con amigos</h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+            
+           
+    <div class="card">
+      
+        <p:carousel value="#{beanProduct.products}" var="product"  responsive="true">
+            <div class="product">
+                <div class="product-grid-item p-p-5">
+                    <div class="product-grid-item-top">
+                        <div class="product-description">#{product.descripcion}</div>
+
+                    </div>
+                    <div class="product-grid-item-content">
+                        <h:outputStylesheet library="css" name="index.css"></h:outputStylesheet>
+                        <p:graphicImage  class="cimage" library="img" name="#{product.foto}.png"></p:graphicImage>
+                        <div class="product-name">#{product.nombre}</div>
+                        
+                        <p:rating readonly="true" value="5"/>
+                    </div>
+                    <div class="product-grid-item-bottom">
+                        <h:outputLabel  value="Venta Minima: #{product.cantidadMinima}"></h:outputLabel>
+                        <br/>
+                        <h:outputText value="$#{product.precio}" styleClass="product-price">
+                          
+                        </h:outputText>
+                        <p:commandButton type="button" value="Add To Cart"
+                                         icon="pi pi-shopping-cart"></p:commandButton>
+                    </div>
+                </div>
+            </div>
+        </p:carousel>
+    </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
