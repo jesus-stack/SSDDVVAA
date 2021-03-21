@@ -13,14 +13,51 @@
         <h:outputStylesheet library="css" name="index.css"></h:outputStylesheet>
          <h:outputStylesheet library="css" name="menu.css"></h:outputStylesheet>
           <h:outputStylesheet library="css" name="mantenimiento.css"></h:outputStylesheet>
+            <h:outputStylesheet library="css" name="log.css"></h:outputStylesheet>
        
-        <title>frame</title>
+        <title>Sistena Digital de Ventas de Alimentos</title>
          <h:outputStylesheet library="css" name="menu.css"/>
     </h:head>
 
     <h:body class="body">
 
         <div id="top">
+            <p:dialog class="log" header="Ingresar" widgetVar="log"  showEffect="fade" modal="true">
+                <h:form>
+                 
+                    <p:growl showDetail="true"></p:growl>
+                                <div class="logleft">
+                                    <p:graphicImage library="img" name="login_1.png" class="logo"></p:graphicImage>
+                                </div>
+                                <div class="logright">
+                                    <h:panelGrid columns="1">
+                                        <p:outputLabel class="label" value="Identificacion"></p:outputLabel>
+                                        <p:inputText value="#{beanLogin.usuario.id}"></p:inputText>
+                                    <p:outputLabel class="label" value="Contrasenna"></p:outputLabel>
+                                    <p:inputText value="#{beanLogin.usuario.contrasenna}"></p:inputText>
+                                    
+                                    </h:panelGrid>
+                                    <br/>
+                                    <br/>
+                                    <div class="logright" onclick="#{beanLogin.validarUsuario()}">
+                                     
+                                        <p:graphicImage class="icon" library="img" name="login.png"></p:graphicImage>
+                                        <h:outputText  class="btnok label " value="Ingresar"></h:outputText>
+                                       
+                                    </div>
+                                    <div class="logleft" >
+                                
+                                        <p:graphicImage class="icon" library="img" name="eliminar.png"></p:graphicImage>
+                                        <h:outputText  class="btncancel label " value="Cancelar"></h:outputText>
+                                     
+                                    </div>
+                                    
+                                </div>
+             
+                </h:form>
+                
+                
+            </p:dialog>
            
             <h:form>
                 <p:tabMenu  activeIndex="#{param.i}">
@@ -50,7 +87,7 @@
                     <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
                     <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
                 </p:menuitem> 
-                <p:menuitem class="login">
+                    <p:menuitem class="login" onclick="PF('log').show()">
                     <p:graphicImage class="icon"  library="img" name="login.png"></p:graphicImage>
                     <h:outputLabel class="itemlabel" value="Ingresar"></h:outputLabel>
                 </p:menuitem> 

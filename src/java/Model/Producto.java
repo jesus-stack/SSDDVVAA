@@ -5,8 +5,11 @@
  */
 package Model;
 
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import javax.imageio.ImageIO;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
@@ -20,12 +23,12 @@ public class Producto {
    private double precio;
    private byte[] foto;
    private int cantidadMinimaVenta;
-   private StreamedContent image;
+   
 
     public Producto() {
     }
 
-    public Producto(int id, String nombre, String descripcion, double precio, byte[] foto, int cantidadMinimaVenta) {
+    public Producto(int id, String nombre, String descripcion, double precio,byte [] foto, int cantidadMinimaVenta) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -83,15 +86,9 @@ public class Producto {
         this.cantidadMinimaVenta = cantidadMinimaVenta;
     }
 
-    public void setImage(DefaultStreamedContent image) {
-        this.image = image;
-    }
-    
-    public StreamedContent getImage(){
-      InputStream in=new ByteArrayInputStream(foto);
-        StreamedContent imagen=new DefaultStreamedContent(in,"image/png");
-        return imagen;
-        
-    }
+public StreamedContent imagen() throws IOException{
+          StreamedContent imagen= new DefaultStreamedContent(new ByteArrayInputStream(foto));
+          return imagen;
+}
    
 }

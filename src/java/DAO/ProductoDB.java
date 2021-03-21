@@ -8,7 +8,10 @@ package DAO;
 import DAO.Conexion.AccesoDatos;
 import DAO.Conexion.SNMPExceptions;
 import Model.Producto;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,6 +20,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -75,7 +79,10 @@ public class ProductoDB {
                 Producto pro=new Producto();
                 pro.setNombre(rsPA.getString("nombre"));
                 pro.setDescripcion(rsPA.getString("descripcion"));
-                pro.setFoto(rsPA.getBytes("foto"));
+                Blob img=rsPA.getBlob(4);
+                byte [] foto=img.getBytes(1,(int) img.length());
+        
+                pro.setFoto(foto);
                 pro.setPrecio(rsPA.getFloat("precio"));
                 pro.setCantidadMinimaVenta(rsPA.getInt("cantidadMinimaVenta"));
                 listaProductos.add(pro);

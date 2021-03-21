@@ -8,6 +8,7 @@ package cController;
 import DAO.Conexion.SNMPExceptions;
 import DAO.ProductoDB;
 import Model.Producto;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -87,15 +88,17 @@ private LinkedList listaCodigo;
           FacesContext.getCurrentInstance().addMessage(null, message);
       }  
     }
-    public StreamedContent imagen(byte[] input) throws IOException{
-        if(input!=null){
-           InputStream in=new ByteArrayInputStream(input);
+    public StreamedContent imagen(InputStream in) throws IOException{
+        StreamedContent st;
+        if(in!=null){
+          
         
-        return new DefaultStreamedContent(in,"image/png");
+        st= new DefaultStreamedContent(in,"image/png");
         }
         else{
-            return new DefaultStreamedContent();
+            st= new DefaultStreamedContent();
         }
+        return st;
     }
     
     public LinkedList llenarLista(){
@@ -114,5 +117,8 @@ private LinkedList listaCodigo;
 return lista;   
 }
   
-    
+    public StreamedContent imagen( byte[] foto) throws IOException{
+          StreamedContent imagen= new DefaultStreamedContent(new ByteArrayInputStream(foto));
+          return imagen;
+}
 }
