@@ -37,8 +37,8 @@ private static Usuario usuario=new Usuario();
         beanLogin.usuario = usuario;
     }
     
-    public String validarUsuario() throws SNMPExceptions{
-        String action="PF('log').show()";
+    public void validarUsuario() throws SNMPExceptions{
+       
        
         FacesMessage mensajeM=new FacesMessage(FacesMessage.SEVERITY_ERROR,"!DATOS INVALIDOS","!DATOS INVALIDOS");
         FacesMessage mensajeB=new FacesMessage(FacesMessage.SEVERITY_INFO,"!DATOS VALIDOS","!DATOS VALIDOS");
@@ -48,7 +48,7 @@ private static Usuario usuario=new Usuario();
              Usuario usuario1=UsuarioDLL.UsuarioXidentificacion(this.getUsuario().getId());
             if(usuario1.isEstado()==true&&usuario1.getContrasenna().equals(this.getUsuario().getContrasenna())){ 
                context.addMessage(null, mensajeB);
-               action="PF('log').dispose()";
+             
               
             }
             else{
@@ -59,7 +59,7 @@ private static Usuario usuario=new Usuario();
             context.addMessage(null, mensajeM);
         }
         finally{
-            return action;
+          
         
             
         }

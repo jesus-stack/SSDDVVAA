@@ -11,89 +11,117 @@
         <h:outputStylesheet name="/css/default.css"/>
         <h:outputStylesheet name="/css/cssLayout.css"/>
         <h:outputStylesheet library="css" name="index.css"></h:outputStylesheet>
-         <h:outputStylesheet library="css" name="menu.css"></h:outputStylesheet>
-          <h:outputStylesheet library="css" name="mantenimiento.css"></h:outputStylesheet>
-            <h:outputStylesheet library="css" name="log.css"></h:outputStylesheet>
-       
+        <h:outputStylesheet library="css" name="menu.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="mantenimiento.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="log.css"></h:outputStylesheet>
+
         <title>Sistena Digital de Ventas de Alimentos</title>
-         <h:outputStylesheet library="css" name="menu.css"/>
+        <h:outputStylesheet library="css" name="menu.css"/>
     </h:head>
 
     <h:body class="body">
-
+      
+        <p:growl  ></p:growl>
         <div id="top">
-            <p:dialog class="log" header="Ingresar" widgetVar="log"  showEffect="fade" modal="true">
-                <h:form>
-                 
-                    <p:growl showDetail="true"></p:growl>
-                                <div class="logleft">
-                                    <p:graphicImage library="img" name="login_1.png" class="logo"></p:graphicImage>
-                                </div>
-                                <div class="logright">
-                                    <h:panelGrid columns="1">
-                                        <p:outputLabel class="label" value="Identificacion"></p:outputLabel>
-                                        <p:inputText value="#{beanLogin.usuario.id}"></p:inputText>
-                                    <p:outputLabel class="label" value="Contrasenna"></p:outputLabel>
-                                    <p:inputText value="#{beanLogin.usuario.contrasenna}"></p:inputText>
-                                    
-                                    </h:panelGrid>
-                                    <br/>
-                                    <br/>
-                                    <div class="logright" onclick="#{beanLogin.validarUsuario()}">
-                                     
-                                        <p:graphicImage class="icon" library="img" name="login.png"></p:graphicImage>
-                                        <h:outputText  class="btnok label " value="Ingresar"></h:outputText>
-                                       
-                                    </div>
-                                    <div class="logleft" >
-                                
-                                        <p:graphicImage class="icon" library="img" name="eliminar.png"></p:graphicImage>
-                                        <h:outputText  class="btncancel label " value="Cancelar"></h:outputText>
-                                     
-                                    </div>
-                                    
-                                </div>
+        
+         
+            <p:dialog class="log" header="Registar" widgetVar="sign"  showEffect="fade" modal="true">
+              
+                    <h:form>
+                       
+                        <table>
+                            <tr>
+                               <td><p:outputLabel class="label" value="Identificacion"></p:outputLabel><br/>
+                                    <p:inputText></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel class="label" value="Primer Nombre"></p:outputLabel><br/>
+                                    <p:inputText></p:inputText></td>
+                                <td><p:outputLabel class="label" value="Segundo Nombre"></p:outputLabel><br/>
+                                    <p:inputText></p:inputText></td>
+                            </tr>
+                               <tr>
+                                <td><p:outputLabel class="label" value="Primer Apellido"></p:outputLabel><br/>
+                                    <p:inputText></p:inputText></td>
+                                <td><p:outputLabel class="label" value="Segundo Apellido"></p:outputLabel><br/>
+                                    <p:inputText></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel class="label" value="Telefono"></p:outputLabel><br/>
+                                    <p:inputText></p:inputText></td>
+                            </tr>
+                             <tr>
+                                <td><p:outputLabel class="label" value="Correo"></p:outputLabel><br/>
+                                    <p:inputText></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><p:commandButton value="Cancelar"  type="reset"></p:commandButton>
+                                    <p:commandButton value="Registrar" actionListener="#{beanCliente.insertarCliente()}" ajax="false"> </p:commandButton></td>
+                            </tr>
+                        </table>
+                               
+                           
+                      
+                    </h:form>
              
-                </h:form>
-                
-                
             </p:dialog>
-           
+            <p:dialog class="log" header="Ingresar" widgetVar="log"  showEffect="fade" modal="true">
+                <div class="logleft">
+                    <p:graphicImage library="img" class="logo" name="login_1.png"></p:graphicImage>
+                </div>
+                <div class="logright">
+                    <h:form>
+                       
+                        <p:outputLabel class="label" value="Idenificacion"></p:outputLabel><br/>
+                            <p:inputText value="#{beanLogin.usuario.id}"></p:inputText><br/>
+                         <p:outputLabel class="label" value="Contrasenna"></p:outputLabel><br/>
+                             <p:password value="#{beanLogin.usuario.contrasenna}"></p:password><br/><br/><br/>
+                             <p:commandButton value="Cancelar"  type="reset"></p:commandButton>
+                             <p:commandButton value="Registrar" ajax="false" action="#{beanLogin.validarUsuario()}"> </p:commandButton>
+                          
+                    </h:form>
+                </div>
+            </p:dialog>
+
             <h:form>
                 <p:tabMenu  activeIndex="#{param.i}">
-        
-                <p:menuitem outcome="/index">
-                     <f:param name="i" value="0"/>
-                    <h:graphicImage class="logo" library="img" name="SDVA.png"></h:graphicImage>  
-                </p:menuitem>
-                
+
+                    <p:menuitem outcome="/index">
+                        <f:param name="i" value="0"/>
+                        <h:graphicImage class="logo" library="img" name="SDVA.png"></h:graphicImage>  
+                    </p:menuitem>
+
                     <p:menuitem  outcome="/Producto">
-                      <f:param name="i" value="1"/>
-                    <p:graphicImage class="icon"  library="img" name="producto.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabel" value="Productos"></h:outputLabel>
-                </p:menuitem> 
-                  <p:menuitem >
+                        <f:param name="i" value="1"/>
+                        <p:graphicImage class="icon"  library="img" name="producto.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Productos"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem >
                         <f:param name="i" value="2"/>
-                    <p:graphicImage class="icon"  library="img" name="pedido.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabel" value="Pedidos"></h:outputLabel>
-                </p:menuitem> 
+                        <p:graphicImage class="icon"  library="img" name="pedido.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Pedidos"></h:outputLabel>
+                    </p:menuitem> 
                     <p:menuitem outcome="/Mantenimiento">
                         <f:param name="i" value="3"/>
-                    <p:graphicImage class="icon"  library="img" name="mantenimiento.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabel" value="Mantenimiento"></h:outputLabel>
-                </p:menuitem> 
-                  <p:menuitem >
+                        <p:graphicImage class="icon"  library="img" name="mantenimiento.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Mantenimiento"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem >
                         <f:param name="i" value="4"/>
-                    <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
-                </p:menuitem> 
+                        <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
+                    </p:menuitem> 
                     <p:menuitem class="login" onclick="PF('log').show()">
-                    <p:graphicImage class="icon"  library="img" name="login.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabel" value="Ingresar"></h:outputLabel>
-                </p:menuitem> 
-                    
-            </p:tabMenu>
-                </h:form>
+                        <p:graphicImage class="icon"  library="img" name="login.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Ingresar"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem class="signin" onclick="PF('sign').show()">
+                        <p:graphicImage class="icon"  library="img" name="signin.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Registrar"></h:outputLabel>
+                    </p:menuitem> 
+                </p:tabMenu>
+            </h:form>
         </div>
         <div>
             <div id="left">
@@ -111,12 +139,12 @@
         <div id="bottom">
             <div>
                 <h2>Sistema Digital de Ventas de Limentos</h2>
-              
+
                 <h3>alimentos al alcance de un click</h3>
                 <p>Telefono: 8877-6655  Correo: atencioncliente@sdva.cr</p>
-                
+
             </div>
-              
+
         </div>
 
     </h:body>
