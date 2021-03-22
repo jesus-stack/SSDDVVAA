@@ -97,20 +97,25 @@
                         <p:graphicImage class="icon"  library="img" name="producto.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Productos"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem >
+                    <p:menuitem  rendered="#{beanLogin.pedidos}">
                         <f:param name="i" value="2"/>
                         <p:graphicImage class="icon"  library="img" name="pedido.png"></p:graphicImage>
-                        <h:outputLabel class="itemlabel" value="Pedidos"></h:outputLabel>
+                        <h:outputLabel class="itemlabel" value="Pedidos" ></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem outcome="/Mantenimiento">
+                    <p:menuitem outcome="/Mantenimiento" rendered="#{beanLogin.mantenimiento}">
                         <f:param name="i" value="3"/>
                         <p:graphicImage class="icon"  library="img" name="mantenimiento.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Mantenimiento"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem >
+                    <p:menuitem rendered="#{beanLogin.facturacion}">
                         <f:param name="i" value="4"/>
                         <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem rendered="#{beanLogin.reportes}">
+                        <f:param name="i" value="4"/>
+                        <p:graphicImage class="icon"  library="img" name="reporte.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Reportes"></h:outputLabel>
                     </p:menuitem> 
                     <p:menuitem class="login" onclick="PF('log').show()">
                         <p:graphicImage class="icon"  library="img" name="login.png"></p:graphicImage>

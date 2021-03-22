@@ -23,6 +23,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class beanLogin implements Serializable {
 private static Usuario usuario=new Usuario();
+private boolean mantenimiento,facturacion,pedidos,reportes;
     /**
      * Creates a new instance of beanLogin
      */
@@ -36,6 +37,72 @@ private static Usuario usuario=new Usuario();
     public void setUsuario(Usuario usuario) {
         beanLogin.usuario = usuario;
     }
+
+    public boolean isMantenimiento() {
+          boolean resultado=false;
+        if(usuario.getTipo()!=null){
+           if(usuario.getTipo().getId()==1||usuario.getTipo().getId()==4){
+               resultado=true;
+           }
+        }
+            
+        
+        return resultado;
+    }
+
+    public void setMantenimiento(boolean mantenimiento) {
+        this.mantenimiento = mantenimiento;
+    }
+
+    public boolean isFacturacion() {
+        boolean resultado=false;
+        if(usuario.getTipo()!=null){
+           if(usuario.getTipo().getId()==1||usuario.getTipo().getId()==3){
+               resultado=true;
+           }
+        }
+            
+        
+        return resultado;
+    }
+
+    public void setFacturacion(boolean facturacion) {
+        this.facturacion = facturacion;
+    }
+
+    public boolean isPedidos() {
+      boolean resultado=false;
+        if(usuario.getTipo()!=null){
+         
+               resultado=true;
+           
+        }
+            
+        
+        return resultado;
+    }
+
+    public void setPedidos(boolean pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public boolean isReportes() {
+          boolean resultado=false;
+        if(usuario.getTipo()!=null){
+           if(usuario.getTipo().getId()==1){
+               resultado=true;
+           }
+        }
+            
+        
+        return resultado;
+    }
+
+    public void setReportes(boolean reportes) {
+        this.reportes = reportes;
+    }
+    
+    
     
     public void validarUsuario() throws SNMPExceptions{
        
@@ -46,12 +113,14 @@ private static Usuario usuario=new Usuario();
      
         try {
              Usuario usuario1=UsuarioDLL.UsuarioXidentificacion(this.getUsuario().getId());
-            if(usuario1.isEstado()==true&&usuario1.getContrasenna().equals(this.getUsuario().getContrasenna())){ 
+            if(usuario1.isEstado()==true&&usuario1.getContrasenna().equals(this.getUsuario().getContrasenna())){
+                this.setUsuario(usuario1);
                context.addMessage(null, mensajeB);
              
               
             }
             else{
+                  this.setUsuario(new Usuario());
                 context.addMessage(null, mensajeM);
             }
             
@@ -64,6 +133,8 @@ private static Usuario usuario=new Usuario();
             
         }
   }
+    
+   
 }
 
 

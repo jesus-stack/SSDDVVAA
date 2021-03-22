@@ -3,12 +3,12 @@
    width: 100px;
 }
 .icon{
-    width: 25px;
+    width: 20px;
 }
 
 
 .itemlabel{
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 10px;
     font-weight: bold;
   cursor: pointer;
@@ -42,7 +42,7 @@
 }
 .login{
     position: fixed;
-    left: 85vw;
+    left: 88vw;
     background-color: #2E90BD;
 }
 .signin:hover{
@@ -50,7 +50,7 @@
 }
 .signin{
     position: fixed;
-    left: 85vw;
+    left: 88vw;
     top: 10vh;
     background-color: #2E90BD;
 }
