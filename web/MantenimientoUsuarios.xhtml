@@ -68,6 +68,11 @@
                  <p:column  headerText="Contraseña">
                      <h:outputText value="#{pro.descripcion}"></h:outputText>
                 </p:column>
+                    <p:column style="width: 70px"  headerText="Estado">
+                         <h:form>
+                         <p:selectBooleanCheckbox disabled="true"></p:selectBooleanCheckbox>
+                         </h:form>
+                </p:column>
                  
                     <p:column headerText="Editar"  style="width: 100px">
                              <h:form>

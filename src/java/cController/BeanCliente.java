@@ -17,6 +17,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.naming.NamingException;
 
@@ -68,19 +70,20 @@ public class BeanCliente implements Serializable {
     
     
     
-    public String insertarCliente() throws NamingException, SNMPExceptions, SQLException, ClassNotFoundException{
+    public void insertarCliente() throws NamingException, SNMPExceptions, SQLException, ClassNotFoundException{
        
             
              try {
                  
                UsuarioDLL.insertarCliente(cliente);
-                mensaje="login.xhtml";
+               // mensaje="login.xhtml";
         } catch (Exception e) {
-            error="Error al registrar el cliente";
+                 FacesContext.getCurrentInstance().addMessage(null,
+                         new FacesMessage("error" +e.getMessage()));
         }
  
     
-            return mensaje;
+           // return mensaje;
       
  
     }

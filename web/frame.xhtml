@@ -32,27 +32,31 @@
                         <table>
                             <tr>
                                <td><p:outputLabel class="label" value="Identificacion"></p:outputLabel><br/>
-                                    <p:inputText></p:inputText></td>
+                                   <p:inputText value="#{beanCliente.cliente.identificacion}"></p:inputText></td>
                             </tr>
                             <tr>
                                 <td><p:outputLabel class="label" value="Primer Nombre"></p:outputLabel><br/>
-                                    <p:inputText></p:inputText></td>
+                                    <p:inputText value="#{beanCliente.cliente.nombre}"></p:inputText></td>
                                 <td><p:outputLabel class="label" value="Segundo Nombre"></p:outputLabel><br/>
-                                    <p:inputText></p:inputText></td>
+                                    <p:inputText value="#{beanCliente.cliente.segundoNombre}"></p:inputText></td>
                             </tr>
                                <tr>
                                 <td><p:outputLabel class="label" value="Primer Apellido"></p:outputLabel><br/>
-                                    <p:inputText></p:inputText></td>
+                                    <p:inputText  value="#{beanCliente.cliente.apellido}"></p:inputText></td>
                                 <td><p:outputLabel class="label" value="Segundo Apellido"></p:outputLabel><br/>
-                                    <p:inputText></p:inputText></td>
+                                    <p:inputText value="#{beanCliente.cliente.segundoApellido}"></p:inputText></td>
                             </tr>
                             <tr>
                                 <td><p:outputLabel class="label" value="Telefono"></p:outputLabel><br/>
-                                    <p:inputText></p:inputText></td>
+                                    <p:inputText value="#{beanCliente.cliente.telefono}"></p:inputText></td>
                             </tr>
                              <tr>
                                 <td><p:outputLabel class="label" value="Correo"></p:outputLabel><br/>
-                                    <p:inputText></p:inputText></td>
+                                    <p:inputText value="#{beanCliente.cliente.correo}"></p:inputText></td>
+                            </tr>
+                             <tr>
+                                <td><p:outputLabel class="label" value="Contrasena"></p:outputLabel><br/>
+                                    <p:inputText value="#{beanCliente.cliente.contrasenna}"></p:inputText></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -112,7 +116,7 @@
                         <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem rendered="#{beanLogin.reportes}">
+                    <p:menuitem outcome="/Reportes" rendered="#{beanLogin.reportes}">
                         <f:param name="i" value="4"/>
                         <p:graphicImage class="icon"  library="img" name="reporte.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Reportes"></h:outputLabel>

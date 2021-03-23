@@ -10,33 +10,67 @@
         <ui:composition template="/frame.xhtml">
 
             <ui:define name="content">
+                <h:form>
+               <table border="0" cellspacing="36" cellpadding="15">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h>Reportes del sistema digital de ventas</h>
+                                
+                                </th>
+                            </tr>
+                        </thead>
+                   <tbody>
+                            <tr>
+                                <td>
+                                     <h:outputLabel class="label" value="Desde"></h:outputLabel> 
+                                     <br/>
+                                       <p:datePicker></p:datePicker>
+                                </td>
+                                <td>
+                                      <h:outputLabel class="label" value="Hasta"></h:outputLabel>
+                                      <br/>
+                                       <p:datePicker></p:datePicker>
+                                </td>
+                            </tr>
+                          
+                   </tbody>
+                        </table>
+                      
+           
+                    </h:form>
+                   
+         
+                <div>
                 <div class="logleft">
-                <h:outputLabel class="label" value="Pedidos Realizados 146">
+                    <h>Pedidos Realizados</h>
+                    <br/>
+                <h:outputLabel class="label" value="146">
                     <br/>
                     <br/>
                 </h:outputLabel>
           <p:chart type="pie"
                  responsive="true"
                 
-                 model="#{beanReportes.model}" style="width: 300px;background-image: none" />
+                 model="#{beanReportes.model}" style="width: 400px;background-image: none" />
                 </div>
                 <div class="logright">
+                    <h>Ventas Efectuadas </h>
+                    <br/>
           
-          <h:outputLabel class="label" value="Ventas Efectuadas 108 000"></h:outputLabel>
+          <h:outputLabel class="label" value="108 000"></h:outputLabel>
                     <br/>
                     <br/>
            <p:chart type="pie"
                  responsive="true"
-                 model="#{beanReportes.model1}" style="width: 300px" />
+                 model="#{beanReportes.model1}" style="width: 400px" />
           
                 </div>
-                <div>
                     <h:form>
-                  <div class="p-field p-col-12 p-md-4">
-                <p:outputLabel for="dateTemplate" value="Date Template"/>
-                <p:datePicker id="dateTemplate" value="#{calendarView.date5}" dateTemplate="dateTemplateFunc"/>
-            </div>
-                </h:form></div>
+                    <p:inputText readonly="true" value="@2021"></p:inputText>
+                    </h:form>
+                </div>
+               
 
             </ui:define>
 

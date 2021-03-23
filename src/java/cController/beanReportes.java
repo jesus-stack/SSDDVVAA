@@ -52,8 +52,8 @@ public class beanReportes {
       
       
        model1 = new PieChartModel();
-      model1.set(" Ventas al Contado", 6200000);//jobs in thousands
-      model1.set("Ventas a Credito", 460000);
+      model1.set(" Ventas al Contado", 62000);//jobs in thousands
+      model1.set("Ventas a Credito", 46000);
       
     
 

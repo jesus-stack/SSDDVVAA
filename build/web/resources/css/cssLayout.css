@@ -34,21 +34,21 @@
 
 .center_content {
     position: relative;
-   min-height: 40vh;
+   min-height: 50vh;
     padding: 5px;
 }
 
 .left_content {
    
     padding: 5px;
-    min-height: 40vh;
+    min-height: 50vh;
     margin-left: 170px;
 }
 
 .right_content {
 
     padding: 5px;
-    min-height: 40vh;
+    min-height: 50vh;
     margin: 0px 170px 0px 170px;
 }
 
