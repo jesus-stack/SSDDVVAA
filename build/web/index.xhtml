@@ -35,7 +35,7 @@
            
     <div class="card">
         <h:form>
-        <p:carousel value="#{beanProduct.products}" var="product"  responsive="true">
+            <p:carousel value="#{beanProducto.listaCodigo}" var="product" numVisible="4"  responsive="true">
             <div class="product">
                 <div class="product-grid-item p-p-5">
                     <div class="product-grid-item-top">
@@ -44,19 +44,18 @@
                     </div>
                     <div class="product-grid-item-content">
                         <h:outputStylesheet library="css" name="index.css"></h:outputStylesheet>
-                        <p:graphicImage  class="cimage" library="img" name="#{product.foto}.png"></p:graphicImage>
+                        <p:graphicImage  class="logo" library="img" name="alas.png"></p:graphicImage>
                         <div class="product-name">#{product.nombre}</div>
                         
-                        <p:rating readonly="true" value="5"/>
+                       
                     </div>
                     <div class="product-grid-item-bottom">
-                        <h:outputLabel  value="Venta Minima: #{product.cantidadMinima}"></h:outputLabel>
+                        <h:outputLabel  value="Venta Minima: #{product.cantidadMinimaVenta}"></h:outputLabel>
                         <br/>
                         <h:outputText value="$#{product.precio}" styleClass="product-price">
                           
                         </h:outputText>
-                        <p:commandButton type="button" value="Add To Cart"
-                                         icon="pi pi-shopping-cart"></p:commandButton>
+                     
                     </div>
                 </div>
             </div>

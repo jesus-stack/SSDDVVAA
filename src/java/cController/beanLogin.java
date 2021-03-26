@@ -8,6 +8,7 @@ package cController;
 import DAO.Conexion.AccesoDatos;
 import DAO.Conexion.SNMPExceptions;
 import DAO.UsuarioDLL;
+import Model.Tipo.TipoUsuario;
 import Model.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -22,7 +23,7 @@ import javax.faces.context.FacesContext;
 @Named(value = "beanLogin")
 @SessionScoped
 public class beanLogin implements Serializable {
-private static Usuario usuario=new Usuario();
+private static Usuario usuario=new Usuario(1, "admin", true, new TipoUsuario(1, "administrador"));
 private boolean mantenimiento,facturacion,pedidos,reportes;
     /**
      * Creates a new instance of beanLogin

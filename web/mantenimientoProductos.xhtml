@@ -21,19 +21,16 @@
                    <p:inputNumber id="price" value="#{beanProducto.producto.precio}"></p:inputNumber>
                    <p:outputLabel class="label" for="min" value="Minima Venta"></p:outputLabel>
                    <p:inputNumber id="min" value="#{beanProducto.producto.cantidadMinimaVenta}"></p:inputNumber>
-                   <h:panelGrid columns="1">
-                       <p:outputLabel class="label" for="img" value="Imagen"></p:outputLabel>
-                       <p:fileUpload  value="#{beanProducto.fileImagen}" id="img" mode="simple" accept=".png" skinSimple="true" ></p:fileUpload>
-                   </h:panelGrid>
+                  
                   <br/>
                   <br/>
            
                    <p:growl showDetail="true"></p:growl>
                
                         <p:tieredMenu style="width: 100px;">   
-                        <p:menuitem class="mantenimiento" >
+                            <p:menuitem class="mantenimiento" ajax="false" onclick="#{beanProducto.AgregarProducto()}">
                     <p:graphicImage class="icon"  library="img" name="guardar.png"></p:graphicImage>
-                    <h:outputLabel class=" itemlabelM "  value="Guardar"></h:outputLabel>
+                    <h:outputLabel class=" itemlabelM "  value="Guardar" ></h:outputLabel>
                     
                 </p:menuitem>
                                      <p:menuitem class="mantenimiento">
