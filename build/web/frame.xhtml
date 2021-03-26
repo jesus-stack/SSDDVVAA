@@ -91,37 +91,42 @@
             <h:form>
                 <p:tabMenu  activeIndex="#{param.i}">
 
-                    <p:menuitem outcome="/index">
+                    <p:menuitem  outcome="/index">
                         <f:param name="i" value="0"/>
                         <h:graphicImage class="logo" library="img" name="SDVA.png"></h:graphicImage>  
                     </p:menuitem>
 
-                    <p:menuitem  outcome="/Producto">
+                    <p:menuitem class="tabitem" outcome="/Producto">
                         <f:param name="i" value="1"/>
                         <p:graphicImage class="icon"  library="img" name="producto.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Productos"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem  rendered="#{beanLogin.pedidos}">
+                    <p:menuitem  class="tabitem" outcome="/pedidos" rendered="#{beanLogin.pedidos}">
                         <f:param name="i" value="2"/>
                         <p:graphicImage class="icon"  library="img" name="pedido.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Pedidos" ></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem outcome="/Mantenimiento" rendered="#{beanLogin.mantenimiento}">
+                    <p:menuitem class="tabitemm" outcome="/Mantenimiento" rendered="#{beanLogin.mantenimiento}">
                         <f:param name="i" value="3"/>
                         <p:graphicImage class="icon"  library="img" name="mantenimiento.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Mantenimiento"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem rendered="#{beanLogin.facturacion}" outcome="/Facturar">
+                    <p:menuitem class="tabitem" rendered="#{beanLogin.facturacion}" outcome="/Facturar">
                         <f:param name="i" value="4"/>
                         <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem outcome="/Reportes" rendered="#{beanLogin.reportes}">
+                    <p:menuitem class="tabitem" outcome="/Reportes" rendered="#{beanLogin.reportes}">
                         <f:param name="i" value="4"/>
                         <p:graphicImage class="icon"  library="img" name="reporte.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Reportes"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem class="login" onclick="PF('log').show()">
+                    <p:menuitem class="shopcart">
+                        <i class="fa fa-cart-plus fa-3x" style="color: black"></i>
+                         <p:outputLabel class="labelc" value="2"></p:outputLabel>
+                    </p:menuitem>
+                   
+                    <p:menuitem  class="login" onclick="PF('log').show()">
                         <p:graphicImage class="icon"  library="img" name="login.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Ingresar"></h:outputLabel>
                     </p:menuitem> 
@@ -138,10 +143,15 @@
             </div>
             <div>
                 <div id="right">
+                  
+                    
+                    
                     <ui:insert name="right"></ui:insert>
                 </div>
                 <div id="content" class="right_content">
+                
                     <ui:insert name="content"></ui:insert>
+                    
                 </div>
             </div>
         </div>
@@ -155,7 +165,7 @@
             </div>
 
         </div>
-
+<script src="https://kit.fontawesome.com/a581a77243.js" crossorigin="anonymous"></script>
     </h:body>
 
 </html>

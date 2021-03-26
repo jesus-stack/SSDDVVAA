@@ -21,14 +21,16 @@ public class Producto {
    private int id;
    private String nombre, descripcion;
    private double precio;
-   private byte[] foto;
+   private InputStream foto;
    private int cantidadMinimaVenta;
+   private StreamedContent imagen;
+   
    
 
     public Producto() {
     }
 
-    public Producto(int id, String nombre, String descripcion, double precio,byte [] foto, int cantidadMinimaVenta) {
+    public Producto(int id, String nombre, String descripcion, double precio,InputStream foto, int cantidadMinimaVenta) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -70,11 +72,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public byte [] getFoto() {
+    public InputStream getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(InputStream foto) {
         this.foto = foto;
     }
 
@@ -86,9 +88,18 @@ public class Producto {
         this.cantidadMinimaVenta = cantidadMinimaVenta;
     }
 
-public StreamedContent imagen() throws IOException{
-          StreamedContent imagen= new DefaultStreamedContent(new ByteArrayInputStream(foto));
-          return imagen;
+    public StreamedContent getImagen() throws IOException {
+        imagen();
+        return imagen;
+    }
+
+    public void setImagen(StreamedContent imagen) {
+        this.imagen = imagen;
+    }
+
+public void imagen() throws IOException{
+           this.setImagen(new DefaultStreamedContent(foto));
+        
 }
    
 }

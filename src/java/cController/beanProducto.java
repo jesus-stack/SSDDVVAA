@@ -35,13 +35,13 @@ public class beanProducto implements Serializable {
 private Producto producto=new Producto();
 private UploadedFile fileImagen;
 private LinkedList<Producto> lista;
-private LinkedList listaCodigo;
+private LinkedList<Producto> listaCodigo;
 
-    public LinkedList getListaCodigo() {
+    public LinkedList<Producto> getListaCodigo() {
         return llenarLista();
     }
 
-    public void setListaCodigo(LinkedList listaCodigo) {
+    public void setListaCodigo(LinkedList<Producto> listaCodigo) {
         this.listaCodigo = listaCodigo;
     }
 

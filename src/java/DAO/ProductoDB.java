@@ -79,10 +79,7 @@ public class ProductoDB {
                 Producto pro=new Producto();
                 pro.setNombre(rsPA.getString("nombre"));
                 pro.setDescripcion(rsPA.getString("descripcion"));
-                Blob img=rsPA.getBlob(4);
-                byte [] foto=img.getBytes(1,(int) img.length());
-        
-                pro.setFoto(foto);
+               pro.setFoto(rsPA.getBinaryStream("foto"));
                 pro.setPrecio(rsPA.getFloat("precio"));
                 pro.setCantidadMinimaVenta(rsPA.getInt("cantidadMinimaVenta"));
                 listaProductos.add(pro);

@@ -333,7 +333,7 @@ create procedure [dbo].[InsertarDireccion]
 
 as
 begin 
-insert into Direccion (codProvincia,codCantos,codDistrito,codBarrio,sennas) values(@codProvincia,@codCanton,@codDistrito,@codBarrio,@sennas)
+insert into Direccion (codProvincia,codCanton,codDistrito,codBarrio,sennas) values(@codProvincia,@codCanton,@codDistrito,@codBarrio,@sennas)
 end
 go
 
