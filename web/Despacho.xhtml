@@ -9,15 +9,12 @@
 
         <ui:composition template="./frame.xhtml">
 
-         
-
             <ui:define name="content">
-                
-                <center> <table border="0" cellspacing="36" cellpadding="15">
+               <center> <table border="0" cellspacing="36" cellpadding="15">
                         <thead>
                             <tr>
                                 <th>
-                                    <h>Pedidos pendientes</h>
+                                    <h>Despacho de pedidos</h>
                                 
                                 </th>
                             </tr>
@@ -32,7 +29,7 @@
                  <p:column  headerText="Cliente">
                      <h:outputText value="#{pro.descripcion}"></h:outputText>
                 </p:column>
-                        <p:column style="width: 120px"  headerText="Fecha de solicitud">
+                        <p:column style="width: 120px"  headerText="Productos">
                          <h:form>
                          <p:selectBooleanCheckbox disabled="true"></p:selectBooleanCheckbox>
                          </h:form>
@@ -50,31 +47,20 @@
                          </h:form>
                 </p:column>
                  
-                    <p:column headerText="Facturar"  style="width: 100px">
+                    <p:column headerText="Despachar"  style="width: 100px">
                              <h:form>
-                 <p:menuitem class="Factu" >
+                 <p:menuitem class="Despa" >
                     <p:graphicImage class="icon"  library="img" name="editar.png"></p:graphicImage>
                     <h:outputLabel class=" itemlabelM itemlabelMIE" value="Editar"></h:outputLabel>
                     
                 </p:menuitem>
                                    </h:form>
                               </p:column>
-                <p:column headerText="Rechazar" style="width: 100px">
-                                <h:form>
-                                 <p:menuitem class="mantenimiento" >
-                    <p:graphicImage class="icon"  library="img" name="eliminar.png"></p:graphicImage>
-                    <h:outputLabel class=" itemlabelM itemlabelMID" value="Eliminar"></h:outputLabel>
-                    
-                </p:menuitem>
-                                </h:form>
-                            </p:column>     
-                      
+               
                    
               
                     </p:dataTable>
                
-                
-                
                 
             </ui:define>
 
