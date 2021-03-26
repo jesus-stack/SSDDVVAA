@@ -18,25 +18,25 @@
                     >
 
             <p:dataViewGridItem>
-                <div class="product-grid-item card border-1">
+                <div class="product-grid-item card border-1" style="border: solid 2px skyblue;min-height: 35vh;">
                     <div class="product-grid-item-top">
-                        <div>
+                        <div align="">
                             <i class="pi pi-tag product-category-icon"/>
                             <span class="product-category">#{product.nombre}</span>
                         </div>
                       
                     </div>
-                    <div class="product-grid-item-content">
+                    <div  class="product-grid-item-content">
                         <p:graphicImage library="img" class="logo" name="alas.png"/>
                         <div class="product-name">#{product.cantidadMinimaVenta}</div>
                         <div class="product-description">#{product.descripcion}</div>
                      
                     </div>
                     <div class="product-grid-item-bottom">
-                        <h:outputText value="#{product.precio}" styleClass="product-price">
-                            <f:convertNumber currencySymbol="₡" type="currency"/>
+                        <h:outputText value="₡ #{product.precio}" styleClass="product-price">
+                            <f:convertNumber currencySymbol="" type="currency"/>
                         </h:outputText>
-                        <p:commandButton type="button"
+                        <p:commandButton style="float:right" type="button"
                                             value="Add To Cart"
                                             icon="pi pi-shopping-cart"
                                             disabled="#{product.nombre == 'OUTOFSTOCK'}">
