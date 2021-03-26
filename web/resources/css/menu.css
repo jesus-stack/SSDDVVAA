@@ -17,7 +17,6 @@
 .tabitem:hover{
 animation-name: expanditem;
 animation-duration : 4s;
-width: 150px;
 }
 .tabitemm{
     width: 18px;
@@ -67,10 +66,14 @@ animation-duration: 4s;
 
 .login:hover{
     background-color: #A1D8F1;
+     animation-name: expanditem;
+    animation-duration: 4s;
 }
+
 .shopcart{
   position: fixed;
-    right: 20vw;
+    right: 0vw;
+    top: 10vh;
 
 }
 .labelc{
@@ -79,16 +82,23 @@ animation-duration: 4s;
 }
 .login{
     position: fixed;
-    right: 0vw;
+    overflow: hidden;
+    right: 5vw;
+    top: 0vh;
+    width: 18px;
     background-color: #2E90BD;
 }
 .signin:hover{
     background-color: #A1D8F1;
+    animation-name: expanditem;
+    animation-duration: 4s;
 }
 .signin{
     position: fixed;
+    overflow: hidden;
     right: 0vw;
-    top: 10vh;
+    top: 0vh;
+     width: 18px;
     background-color: #2E90BD;
 }
 .mantenimiento{
