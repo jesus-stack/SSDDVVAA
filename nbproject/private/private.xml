@@ -3,9 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Jesus/Desktop/proyect/SDVAP/src/java/DAO/ProductoDB.java</file>
             <file>file:/C:/Users/Jesus/Desktop/proyect/SDVAP/src/java/Model/Producto.java</file>
             <file>file:/C:/Users/Jesus/Desktop/proyect/SDVAP/web/mantenimientoProductos.xhtml</file>
+=======
+            <file>file:/C:/Users/Usuario/Desktop/Programación%20V/Proyecto/web/mantenimientoProductos.xhtml</file>
+            <file>file:/C:/Users/Usuario/Desktop/Programación%20V/Proyecto/web/MantenimientoUsuarios.xhtml</file>
+            <file>file:/C:/Users/Usuario/Desktop/Programación%20V/Proyecto/web/Producto.xhtml</file>
+            <file>file:/C:/Users/Usuario/Desktop/Programación%20V/Proyecto/web/frame.xhtml</file>
+            <file>file:/C:/Users/Usuario/Desktop/Programación%20V/Proyecto/web/Facturar.xhtml</file>
+            <file>file:/C:/Users/Usuario/Desktop/Programación%20V/Proyecto/web/Mantenimiento.xhtml</file>
+>>>>>>> origin/Hannyer
         </group>
     </open-files>
 </project-private>

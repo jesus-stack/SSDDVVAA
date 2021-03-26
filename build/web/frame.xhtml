@@ -55,7 +55,7 @@
                                     <p:inputText value="#{beanCliente.cliente.correo}"></p:inputText></td>
                             </tr>
                              <tr>
-                                <td><p:outputLabel class="label" value="Contrasena"></p:outputLabel><br/>
+                                <td><p:outputLabel class="label" value="Contraseña"></p:outputLabel><br/>
                                     <p:inputText value="#{beanCliente.cliente.contrasenna}"></p:inputText></td>
                             </tr>
                             <tr>
@@ -79,7 +79,7 @@
                        
                         <p:outputLabel class="label" value="Idenificacion"></p:outputLabel><br/>
                             <p:inputText value="#{beanLogin.usuario.id}"></p:inputText><br/>
-                         <p:outputLabel class="label" value="Contrasenna"></p:outputLabel><br/>
+                         <p:outputLabel class="label" value="Contraseña"></p:outputLabel><br/>
                              <p:password value="#{beanLogin.usuario.contrasenna}"></p:password><br/><br/><br/>
                              <p:commandButton value="Cancelar"  type="reset"></p:commandButton>
                              <p:commandButton value="Registrar" ajax="false" action="#{beanLogin.validarUsuario()}"> </p:commandButton>
@@ -111,7 +111,7 @@
                         <p:graphicImage class="icon"  library="img" name="mantenimiento.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Mantenimiento"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem rendered="#{beanLogin.facturacion}">
+                    <p:menuitem rendered="#{beanLogin.facturacion}" outcome="/Facturar">
                         <f:param name="i" value="4"/>
                         <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
