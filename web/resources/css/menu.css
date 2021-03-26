@@ -2,20 +2,31 @@
    border-radius: 50%;
    width: 100px;
 }
-
+@keyframes expanditem{
+    from{width:18px;}
+    to{width: 150px;}
+}
+@keyframes expanditemm{
+    from{width:18px;}
+    to{width:200px;}
+}
 .tabitem{
     width: 18px;
     overflow: hidden;
 }
 .tabitem:hover{
-    width: 150px;
+animation-name: expanditem;
+animation-duration : 4s;
+width: 150px;
 }
 .tabitemm{
     width: 18px;
     overflow: hidden;
 }
 .tabitemm:hover{
-    width: 200px;
+  animation-name: expanditemm;
+animation-duration: 4s;
+ani
 }
 .icon{
     width: 20px;
@@ -56,6 +67,15 @@
 
 .login:hover{
     background-color: #A1D8F1;
+}
+.shopcart{
+  position: fixed;
+    right: 20vw;
+
+}
+.labelc{
+    color: brown;
+    font-size: 40px;
 }
 .login{
     position: fixed;
