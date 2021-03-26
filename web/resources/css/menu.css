@@ -7,8 +7,10 @@
     to{width: 150px;}
 }
 @keyframes expanditemm{
+   
     from{width:18px;}
     to{width:200px;}
+    
 }
 .tabitem{
     width: 18px;
@@ -16,7 +18,9 @@
 }
 .tabitem:hover{
 animation-name: expanditem;
-animation-duration : 4s;
+animation-duration : 2s;
+
+width: 150px;
 }
 .tabitemm{
     width: 18px;
@@ -24,7 +28,8 @@ animation-duration : 4s;
 }
 .tabitemm:hover{
   animation-name: expanditemm;
-animation-duration: 4s;
+animation-duration: 2s;
+width: 200px;
 
 }
 .icon{
@@ -67,7 +72,8 @@ animation-duration: 4s;
 .login:hover{
     background-color: #A1D8F1;
      animation-name: expanditem;
-    animation-duration: 4s;
+    animation-duration: 2s;
+    width: 150px
 }
 
 .shopcart{
@@ -91,7 +97,8 @@ animation-duration: 4s;
 .signin:hover{
     background-color: #A1D8F1;
     animation-name: expanditem;
-    animation-duration: 4s;
+    animation-duration: 2s;
+    width: 150px
 }
 .signin{
     position: fixed;
