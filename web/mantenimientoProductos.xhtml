@@ -33,7 +33,7 @@
                         <p:tieredMenu style="width: 100px;background-color: #2F4F4F">   
                         <p:menuitem class="mantenimiento" >
                     <p:graphicImage class="icon"  library="img" name="guardar.png"></p:graphicImage>
-                    <h:outputLabel class=" itemlabelM " value="Guardar"></h:outputLabel>
+                    <h:outputLabel class=" itemlabelM " onclick="#{beanProducto.agregarProducto()}" value="Guardar"></h:outputLabel>
                     
                 </p:menuitem>
                                      <p:menuitem class="mantenimiento">
@@ -78,7 +78,7 @@
                      <h:outputText value="#{pro.cantidadMinimaVenta}"></h:outputText>
                 </p:column>
                  <p:column headerText="Imagen">
-                     <p:graphicImage value="#{beanProducto.imagen(pro.foto)}"></p:graphicImage>
+                     <p:graphicImage value="#{pro.imagen}"></p:graphicImage>
                 </p:column>
                
                 <p:column headerText="Editar" >
