@@ -3,7 +3,20 @@
    width: 100px;
 }
 
-
+.tabitem{
+    width: 18px;
+    overflow: hidden;
+}
+.tabitem:hover{
+    width: 150px;
+}
+.tabitemm{
+    width: 18px;
+    overflow: hidden;
+}
+.tabitemm:hover{
+    width: 200px;
+}
 .icon{
     width: 20px;
 }
@@ -46,7 +59,7 @@
 }
 .login{
     position: fixed;
-    left: 88vw;
+    right: 0vw;
     background-color: #2E90BD;
 }
 .signin:hover{
@@ -54,7 +67,7 @@
 }
 .signin{
     position: fixed;
-    left: 88vw;
+    right: 0vw;
     top: 10vh;
     background-color: #2E90BD;
 }

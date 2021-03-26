@@ -11,23 +11,41 @@
         <ui:composition template="./frame.xhtml">
 
             <ui:define name="content">
-               <h:form>
-                   <p:dataView  var="product" value="#{beanProducto.listaCodigo}">
-                  
-                       <p:dataViewListItem>
-                           <p:outputLabel value="#{product.nombre}"></p:outputLabel>
-                           <br/>
-                           <br/>
-                           <p:graphicImage class="logo" library="img" name="alas.png"></p:graphicImage>
-                           <br/>
-                           <p:outputLabel value="#{product.descripcion}"></p:outputLabel>
-                           <br></br>
-                           <p:outputLabel value="$#{product.precio}"></p:outputLabel>
-                           <p:commandButton value="agregar al carrito"></p:commandButton>
-                       </p:dataViewListItem>
-                    
+              <h:form id="form">
+                  <p:dataView var="product" value="#{beanProducto.listaCodigo}" rows="12" paginator="true"
+                    rowsPerPageTemplate="6,12,16" layout="grid"
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    >
+
+            <p:dataViewGridItem>
+                <div class="product-grid-item card border-1">
+                    <div class="product-grid-item-top">
+                        <div>
+                            <i class="pi pi-tag product-category-icon"/>
+                            <span class="product-category">#{product.nombre}</span>
+                        </div>
+                      
+                    </div>
+                    <div class="product-grid-item-content">
+                        <p:graphicImage library="img" class="logo" name="alas.png"/>
+                        <div class="product-name">#{product.cantidadMinimaVenta}</div>
+                        <div class="product-description">#{product.descripcion}</div>
+                        <p:rating readonly="true" value="4"/>
+                    </div>
+                    <div class="product-grid-item-bottom">
+                        <h:outputText value="#{product.precio}" styleClass="product-price">
+                            <f:convertNumber currencySymbol="₡" type="currency"/>
+                        </h:outputText>
+                        <p:commandButton type="button"
+                                            value="Add To Cart"
+                                            icon="pi pi-shopping-cart"
+                                            disabled="#{product.nombre == 'OUTOFSTOCK'}">
+                        </p:commandButton>
+                    </div>
+                </div>
+            </p:dataViewGridItem>
         </p:dataView>
-               </h:form>
+              </h:form>
             </ui:define>
 
         </ui:composition>
