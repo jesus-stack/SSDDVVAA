@@ -37,7 +37,12 @@ public class ProductoDB {
            //se valida que no exista el producto
        if(existeProducto(pro.getId())){
            //se construye sentencia update
-           String update="exec ActualizarProductos "+pro.getId();
+           String update="exec ActualizarProductos "+pro.getId()+",'"
+                   +pro.getNombre()+"','"
+                  +pro.getDescripcion()+"','"
+                  +pro.getFoto()+"',"
+                  +pro.getPrecio()+","
+                  +pro.getCantidadMinimaVenta();
              //Se ejecuta la sentencia SQL
       accesoDatos.ejecutaSQL(update); 
        }
