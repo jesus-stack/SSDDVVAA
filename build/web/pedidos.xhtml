@@ -12,7 +12,7 @@
 
             <ui:define name="content">
               <h:form id="form">
-                  <p:dataView var="product" value="#{beanProducto.listaCodigo}" rows="12" paginator="true"
+                  <p:dataView var="product" value="#{beanProducto.lista}" rows="12" paginator="true"
                     rowsPerPageTemplate="6,12,16" layout="grid"
                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                     >
@@ -27,7 +27,7 @@
                       
                     </div>
                     <div  class="product-grid-item-content">
-                        <p:graphicImage library="img" class="logo" name="alas.png"/>
+                        <p:graphicImage library="img" class="logo" name="#{product.foto}"/>
                         <div class="product-name">#{product.cantidadMinimaVenta}</div>
                         <div class="product-description">#{product.descripcion}</div>
                      

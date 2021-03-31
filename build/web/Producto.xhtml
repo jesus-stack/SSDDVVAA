@@ -13,10 +13,10 @@
                   <h:form>
                 <div class ="container">
                     
-                <ui:repeat var="o" value="#{beanProducto.listaCodigo}"   varStatus="estado">
+                    <ui:repeat var="o" value="#{beanProducto.lista}"   varStatus="estado">
                     <div class="card">
                         
-                        <img src="resources/img/alas.png"/>
+                        <img src="resources/img/#{o.foto}"/>
                         
                         <h:outputLabel value="#{o.nombre}"/>
                      
@@ -24,7 +24,7 @@
                   
                         <h:outputLabel value="$ #{o.precio}"/>
                         <br/>
-                        <h:commandButton value="Agregar a carrito" action="#"/>
+                        <h:commandButton value="Agregar a carrito" />
    
                         
                     </div>

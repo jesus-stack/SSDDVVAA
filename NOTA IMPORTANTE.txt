@@ -1,0 +1,6 @@
+En la carpeta BD ubicada en la carpeta Raiz se
+Encuentra un Back Up  de la base de datos,es crucial
+restaurarlo ya que la aplicacion depende de los datos ahi almacenados.
+
+gracias
+

@@ -90,6 +90,45 @@ public class UsuarioDLL {
         return listaEstado;
     }
     
+ public static LinkedList<Usuario> listaUsuarios() throws SNMPExceptions{
+      String select = "";
+        LinkedList<Usuario> lista = new LinkedList<Usuario>();
+        Usuario user=new Usuario();
+
+        try {
+        
+            //Se instancia la clase de acceso a datos
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            //Se crea la sentencia de búsqueda
+            select
+                    = "exec [SelecionarTodosUsuarios]";
+            //Se ejecuta la sentencia SQL
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
+            //Se llena el arryaList con los proyectos   
+            while (rsPA.next()) {
+             user.setId(rsPA.getLong("id"));
+             user.setContrasenna(rsPA.getString("contrasenna"));
+             user.setEstado(rsPA.getInt("estado")==1);
+             user.setTipo(new TipoUsuario(rsPA.getInt("tipoUsuario"),rsPA.getString("descripcion")));
+             lista.add(user);
+               
+
+             
+            }
+            rsPA.close();
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage());
+        } finally {
+
+        }
+        return lista;
+ }
  
      public static Usuario UsuarioXidentificacion(long id) throws SNMPExceptions{
     String select = "exec SeleccionaUsuarioXIdentificacion "+id;

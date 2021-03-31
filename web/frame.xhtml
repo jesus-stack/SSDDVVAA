@@ -14,6 +14,8 @@
         <h:outputStylesheet library="css" name="menu.css"></h:outputStylesheet>
         <h:outputStylesheet library="css" name="mantenimiento.css"></h:outputStylesheet>
         <h:outputStylesheet library="css" name="log.css"></h:outputStylesheet>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+        <link rel="icon" href="resources/img/icono.jpeg"></link>
 
         <title>Sistena Digital de Ventas de Alimentos</title>
         <h:outputStylesheet library="css" name="menu.css"/>
@@ -21,7 +23,7 @@
 
     <h:body class="body">
       
-        <p:growl  ></p:growl>
+        <p:growl id="msg" showDetail="true"></p:growl>
         <div id="top">
         
          
@@ -93,7 +95,7 @@
 
                     <p:menuitem  outcome="/index">
                         <f:param name="i" value="0"/>
-                        <h:graphicImage class="logo" library="img" name="SDVA.png"></h:graphicImage>  
+                        <h:graphicImage class="logo" library="img" name="SDVA.jpeg"></h:graphicImage>  
                     </p:menuitem>
 
                     <p:menuitem class="tabitem" outcome="/Producto">
@@ -116,8 +118,14 @@
                         <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
                     </p:menuitem> 
+                     <p:menuitem class="tabitem" rendered="#{beanLogin.facturacion}" outcome="/Despacho">
+                        <f:param name="i" value="5"/>
+                        <p:graphicImage class="icon" url="https://image.flaticon.com/icons/png/512/99/99020.png"
+                                        ></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Despachar"></h:outputLabel>
+                    </p:menuitem> 
                     <p:menuitem class="tabitem" outcome="/Reportes" rendered="#{beanLogin.reportes}">
-                        <f:param name="i" value="4"/>
+                        <f:param name="i" value="6"/>
                         <p:graphicImage class="icon"  library="img" name="reporte.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Reportes"></h:outputLabel>
                     </p:menuitem> 

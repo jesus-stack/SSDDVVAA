@@ -8,19 +8,9 @@ package DAO;
 import DAO.Conexion.AccesoDatos;
 import DAO.Conexion.SNMPExceptions;
 import Model.Producto;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.imageio.ImageIO;
 
 /**
  *
@@ -28,14 +18,15 @@ import javax.imageio.ImageIO;
  */
 public class ProductoDB {
 
-    public static void AgregarProducto(Producto pro,InputStream input) throws SNMPExceptions{
+    public static void AgregarProducto(Producto pro) throws SNMPExceptions{
          String Insert = "exec InsertarProductos '"
                   +pro.getNombre()+"','"
                   +pro.getDescripcion()+"','"
-                  +input+"',"
+                  +pro.getFoto()+"',"
                   +pro.getPrecio()+","
                   +pro.getCantidadMinimaVenta();
-    
+        
+   
         
 
         try {
@@ -43,10 +34,18 @@ public class ProductoDB {
             //Se instancia la clase de acceso a datos
             AccesoDatos accesoDatos = new AccesoDatos();
 
-            //Se crea la sentencia de búsqueda
-         
+           //se valida que no exista el producto
+       if(existeProducto(pro.getId())){
+           //se construye sentencia update
+           String update="exec ActualizarProductos "+pro.getId();
+             //Se ejecuta la sentencia SQL
+      accesoDatos.ejecutaSQL(update); 
+       }
+       else{
             //Se ejecuta la sentencia SQL
-      accesoDatos.ejecutaSQL(Insert);
+      accesoDatos.ejecutaSQL(Insert); 
+       }
+          
   
          
          
@@ -77,12 +76,16 @@ public class ProductoDB {
             //Se llena el arryaList con los proyectos   
             while (rsPA.next()) {
                 Producto pro=new Producto();
+                 pro.setEstado(rsPA.getInt("estado")==1);
+                 if(pro.isEstado()){
+                pro.setId(rsPA.getInt("id"));
                 pro.setNombre(rsPA.getString("nombre"));
                 pro.setDescripcion(rsPA.getString("descripcion"));
-               pro.setFoto(rsPA.getBinaryStream("foto"));
+               pro.setFoto(rsPA.getString("foto"));
                 pro.setPrecio(rsPA.getFloat("precio"));
-                pro.setCantidadMinimaVenta(rsPA.getInt("cantidadMinimaVenta"));
+                pro.setCantidadMinimaVenta(rsPA.getInt("cantidadMinimaVenta")); 
                 listaProductos.add(pro);
+                 }
 
             }
             rsPA.close();
@@ -98,4 +101,38 @@ public class ProductoDB {
         }
         return listaProductos;
     }
+
+private static boolean existeProducto(int id) throws SNMPExceptions{
+ String select = "exec SeleccionarProductoXid " +id;
+        boolean resultado=false;
+
+        try {
+        
+            //Se instancia la clase de acceso a datos
+            AccesoDatos accesoDatos = new AccesoDatos();
+            
+
+            //Se crea la sentencia de búsqueda
+         
+            //Se ejecuta la sentencia SQL
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
+            //Se llena el arryaList con los proyectos   
+            while (rsPA.next()) {
+                resultado=true;
+          
+
+            }
+            rsPA.close();
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage());
+        } finally {
+
+        }
+        return resultado;
+}
 }

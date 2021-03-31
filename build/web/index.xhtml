@@ -35,7 +35,7 @@
            
     <div class="card">
         <h:form>
-            <p:carousel value="#{beanProducto.listaCodigo}" var="product" numVisible="4"  responsive="true">
+            <p:carousel value="#{beanProducto.lista}" var="product" numVisible="4"  responsive="true">
             <div class="product">
                 <div class="product-grid-item p-p-5">
                     <div class="product-grid-item-top">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="product-grid-item-content">
                         <h:outputStylesheet library="css" name="index.css"></h:outputStylesheet>
-                        <p:graphicImage  class="logo" library="img" name="alas.png"></p:graphicImage>
+                        <p:graphicImage  class="logo" library="img" name="#{product.foto}"></p:graphicImage>
                         <div class="product-name">#{product.nombre}</div>
                         
                        

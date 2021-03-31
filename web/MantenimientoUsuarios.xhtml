@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -14,7 +15,7 @@
                  <h:form >
                   
                      <p:outputLabel class="label" for="name" value="Identificacion"></p:outputLabel>
-                 <p:inputText id="name" value="#{beanProducto.producto.nombre}"></p:inputText>
+                     <p:inputText id="name" value="#{beanProducto.producto.nombre}"></p:inputText>
                   <p:outputLabel class="label" for="dsc" value="Contraseña"></p:outputLabel>
                   <p:inputText id="dsc" value="#{beanProducto.producto.descripcion}"></p:inputText>
                   <br/>
@@ -22,26 +23,22 @@
                   <br/>
                   <p:selectBooleanCheckbox class="label" id="estado" itemLabel="Estado"></p:selectBooleanCheckbox>
                   <br/>
+                  <p:selectOneMenu><f:selectItem itemLabel="administrador"></f:selectItem>
+                      <f:selectItem itemLabel="cliente"></f:selectItem>
+                   <f:selectItem itemLabel="cajero"></f:selectItem>
+                   <f:selectItem itemLabel="bodeguero"></f:selectItem></p:selectOneMenu>
                   <br/>
                   <br/>
                  
                    <p:growl showDetail="true"></p:growl>
                
-                     <p:tieredMenu style="width: 100px;background-color: #2F4F4F">   
-                        <p:menuitem class="mantenimiento" >
-                    <p:graphicImage class="icon"  library="img" name="guardar.png"></p:graphicImage>
-                    <h:outputLabel class=" itemlabelM " value="Guardar"></h:outputLabel>
-                    
-                </p:menuitem>
-                                     <p:menuitem class="mantenimiento">
-                    <p:graphicImage class="icon"  library="img" name="buscar.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabelM" value="Buscar"></h:outputLabel>
-                </p:menuitem>
-        <p:menuitem class="mantenimiento" >
-                    <p:graphicImage class="icon"  library="img" name="ayuda.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabelM" value="Ayuda"></h:outputLabel>
-                </p:menuitem>
-                     </p:tieredMenu>
+                     <p:panelGrid columns="1">
+                      <p:commandButton  value="Guardar" ajax="false" style="font-size: 13px"  icon="fa fa-save ">
+                      </p:commandButton>
+                       <p:commandButton  value="Buscar" style="font-size: 14px"  icon="fas fa-search" />
+                        <p:commandButton  value="Ayuda" style="font-size: 15px"  icon="fas fa-question" />
+                  
+                  </p:panelGrid>
                  </h:form>
                  
             </ui:define>
@@ -61,20 +58,22 @@
                       
                     </table>
                 </center>
-                <p:dataTable  value="#{beanProducto.lista}" var="pro" >
+                <p:dataTable  value="#{beanUsuario.usuarios}" var="user" >
                   
                 <p:column headerText="Identificacion">
-                    <h:outputText value="#{pro.nombre}"></h:outputText>
+                    <h:outputText value="#{user.id}"></h:outputText>
                 </p:column>
                  <p:column  headerText="Contraseña">
-                     <h:outputText value="#{pro.descripcion}"></h:outputText>
+                     <h:outputText value="#{user.contrasenna}"></h:outputText>
                 </p:column>
                     <p:column style="width: 70px"  headerText="Estado">
                          <h:form>
-                         <p:selectBooleanCheckbox disabled="true"></p:selectBooleanCheckbox>
+                             <p:selectBooleanCheckbox value="#{user.estado}" disabled="true"></p:selectBooleanCheckbox>
                          </h:form>
                 </p:column>
-                 
+                 <p:column  headerText="Tipo Usuario">
+                     <h:outputText value="#{user.tipo.descripcion}"></h:outputText>
+                </p:column>
                     <p:column headerText="Editar"  style="width: 100px">
                              <h:form>
                  <p:menuitem class="mantenimiento" >

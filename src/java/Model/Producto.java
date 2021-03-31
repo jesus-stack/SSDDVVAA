@@ -21,22 +21,30 @@ public class Producto {
    private int id;
    private String nombre, descripcion;
    private double precio;
-   private InputStream foto;
+   private String foto;
    private int cantidadMinimaVenta;
-   private StreamedContent imagen;
-   
+   private boolean estado;
+  
    
 
     public Producto() {
     }
 
-    public Producto(int id, String nombre, String descripcion, double precio,InputStream foto, int cantidadMinimaVenta) {
+    public Producto(int id, String nombre, String descripcion, double precio,String foto, int cantidadMinimaVenta) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.foto = foto;
         this.cantidadMinimaVenta = cantidadMinimaVenta;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
 
@@ -72,11 +80,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public InputStream getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(InputStream foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 
@@ -88,18 +96,8 @@ public class Producto {
         this.cantidadMinimaVenta = cantidadMinimaVenta;
     }
 
-    public StreamedContent getImagen() throws IOException {
-        imagen();
-        return imagen;
-    }
+   
 
-    public void setImagen(StreamedContent imagen) {
-        this.imagen = imagen;
-    }
 
-public void imagen() throws IOException{
-           this.setImagen(new DefaultStreamedContent(foto));
-        
-}
    
 }

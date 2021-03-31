@@ -10,8 +10,8 @@
         <ui:composition template="/frame.xhtml">
   
              <ui:define name="left">
-                
-                 <h:form enctype="multipart/form-data">
+              
+                 <h:form >
                   
                      <p:outputLabel class="label" for="name" value="Nombre"></p:outputLabel>
                  <p:inputText id="name" value="#{beanProducto.producto.nombre}"></p:inputText>
@@ -21,27 +21,21 @@
                    <p:inputNumber id="price" value="#{beanProducto.producto.precio}"></p:inputNumber>
                    <p:outputLabel class="label" for="min" value="Minima Venta"></p:outputLabel>
                    <p:inputNumber id="min" value="#{beanProducto.producto.cantidadMinimaVenta}"></p:inputNumber>
-                  
+                  <p:outputLabel class="label" for="img" value="Imagen"></p:outputLabel>
+                  <p:inputText id="img" value="#{beanProducto.producto.foto}"></p:inputText>
+                  <p:outputLabel   value="Ejemplo:imagen.Png"></p:outputLabel>
                   <br/>
                   <br/>
            
-                   <p:growl showDetail="true"></p:growl>
-               
-                        <p:tieredMenu style="width: 100px;">   
-                            <p:menuitem class="mantenimiento" ajax="false" onclick="#{beanProducto.AgregarProducto()}">
-                    <p:graphicImage class="icon"  library="img" name="guardar.png"></p:graphicImage>
-                    <h:outputLabel class=" itemlabelM "  value="Guardar" ></h:outputLabel>
+                  <p:panelGrid columns="1">
+                      <p:commandButton  value="Guardar" ajax="false" actionListener="#{beanProducto.AgregarProducto()}" style="font-size: 13px"  icon="fa fa-save ">
+                      </p:commandButton>
+                      <p:commandButton  value="Buscar"  style="font-size: 14px"  icon="fas fa-search" />
+                        <p:commandButton  value="Ayuda" style="font-size: 15px"  icon="fas fa-question" />
+                  
+                  </p:panelGrid>
+                 
                     
-                </p:menuitem>
-                                     <p:menuitem class="mantenimiento">
-                    <p:graphicImage class="icon"  library="img" name="buscar.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabelM" value="Buscar"></h:outputLabel>
-                </p:menuitem>
-        <p:menuitem class="mantenimiento" >
-                    <p:graphicImage class="icon"  library="img" name="ayuda.png"></p:graphicImage>
-                    <h:outputLabel class="itemlabelM" value="Ayuda"></h:outputLabel>
-                </p:menuitem>
-                     </p:tieredMenu>
                  </h:form>
                  
             </ui:define>
@@ -61,7 +55,7 @@
                       
                     </table>
                 </center>
-                <p:dataTable  value="#{beanProducto.lista}" var="pro" >
+                <p:dataTable  widgetVar="tabla" value="#{beanProducto.lista}" var="pro" >
                   
                     <p:column class="table" headerText="Nombre">
                     <h:outputText value="#{pro.nombre}"></h:outputText>
@@ -70,31 +64,25 @@
                      <h:outputText value="#{pro.descripcion}"></h:outputText>
                 </p:column>
                  <p:column headerText="Precio">
-                     <h:outputText value="#{pro.precio}"></h:outputText>
+                     <h:outputText value="#{pro.estado}"></h:outputText>
                 </p:column >
                     <p:column headerText="Minima Venta" style="width: 35px">
                      <h:outputText value="#{pro.cantidadMinimaVenta}"></h:outputText>
                 </p:column>
                  <p:column headerText="Imagen">
-                     <p:graphicImage value="#{pro.imagen}"></p:graphicImage>
+                     <p:graphicImage library="img" class="imagen" name="#{pro.foto}"></p:graphicImage>
                 </p:column>
                
-                <p:column headerText="Editar" >
+                <p:column  headerText="Editar" style="width: 80px">
+                   
                              <h:form>
-                 <p:menuitem class="mantenimiento" >
-                    <p:graphicImage class="icon"  library="img" name="editar.png"></p:graphicImage>
-                    <h:outputLabel class=" itemlabelM itemlabelMIE" value="Editar"></h:outputLabel>
-                    
-                </p:menuitem>
-                                   </h:form>
-                              </p:column>
-                <p:column headerText="Eliminar">
+                                 <p:commandButton icon="fas fa-edit" value="Editar" ajax="false" actionListener="#{beanProducto.editarProducto(pro)}" styleClass="btnedit"></p:commandButton>
+                               
+                             </h:form>           
+                </p:column>
+                <p:column headerText="Eliminar" style="width: 85px">
                                 <h:form>
-                                 <p:menuitem class="mantenimiento" >
-                    <p:graphicImage class="icon"  library="img" name="eliminar.png"></p:graphicImage>
-                    <h:outputLabel class=" itemlabelM itemlabelMID" value="Eliminar"></h:outputLabel>
-                    
-                </p:menuitem>
+                                   <p:commandButton icon="fas fa-trash-alt" value="Eliminar" styleClass="btndelete"></p:commandButton>
                                 </h:form>
                             </p:column>     
                       
