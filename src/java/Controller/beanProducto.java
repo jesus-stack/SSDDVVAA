@@ -80,7 +80,22 @@ private LinkedList<Producto> listaCodigo;
       }  
     }
 
-    
+       public void EliminarProducto(Producto pro) throws IOException, SNMPExceptions{
+        try{
+            
+  ProductoDB.EliminarProducto(pro);
+      FacesMessage message=new FacesMessage(FacesMessage.SEVERITY_INFO,"EXITO", "\nProducto Eliminado ");
+          FacesContext.getCurrentInstance().addMessage("msg", message);
+          producto=new Producto();
+          
+      } catch(Exception e){
+          FacesMessage message=new FacesMessage(FacesMessage.SEVERITY_ERROR,"ERROR","Ha ocurrido un problema, intentelo mas tarde" );
+          FacesContext.getCurrentInstance().addMessage("msg", message);
+      }  
+    }
+       public void nuevo(){
+           this.setProducto(new Producto());
+       }
     public LinkedList llenarLista(){
     
      lista=new LinkedList(); 

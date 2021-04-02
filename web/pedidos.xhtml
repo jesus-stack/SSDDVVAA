@@ -18,26 +18,29 @@
                     >
 
             <p:dataViewGridItem>
-                <div class="product-grid-item card border-1" style="border: solid 2px skyblue;min-height: 35vh;">
+                <div class="product-grid-item card border-1" style="padding: 1%;border: solid 2px skyblue;min-height: 35vh;">
                     <div class="product-grid-item-top">
-                        <div align="">
+                        <center>
                             <i class="pi pi-tag product-category-icon"/>
                             <span class="product-category">#{product.nombre}</span>
-                        </div>
+                        </center>
                       
                     </div>
-                    <div  class="product-grid-item-content">
+                    <center>
+                    <div  class="product-grid-item-content" >
                         <p:graphicImage library="img" class="logo" name="#{product.foto}"/>
                         <div class="product-name">#{product.cantidadMinimaVenta}</div>
                         <div class="product-description">#{product.descripcion}</div>
                      
                     </div>
+                    </center>
                     <div class="product-grid-item-bottom">
-                        <h:outputText value="₡ #{product.precio}" styleClass="product-price">
+                        <h:outputText  value="₡ #{product.precio}" styleClass="product-price product-price-pedido">
                             <f:convertNumber currencySymbol="" type="currency"/>
                         </h:outputText>
-                        <p:commandButton style="float:right" type="button"
-                                            value="Add To Cart"
+                    
+                        <p:commandButton style="float:right;margin-top:10vh" type="button"
+                                            value="Añadir al Carrito"
                                             icon="pi pi-shopping-cart"
                                             disabled="#{product.nombre == 'OUTOFSTOCK'}">
                         </p:commandButton>

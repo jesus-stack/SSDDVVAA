@@ -140,4 +140,34 @@ private static boolean existeProducto(int id) throws SNMPExceptions{
         }
         return resultado;
 }
+    public static void EliminarProducto(Producto pro) throws SNMPExceptions{
+         String DELETE = "exec elminarProducto "+pro.getId();
+               
+        
+   
+        
+
+        try {
+        
+            //Se instancia la clase de acceso a datos
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+           //se valida que no exista el producto
+      
+            //Se ejecuta la sentencia SQL
+      accesoDatos.ejecutaSQL(DELETE); 
+                 
+  
+         
+         
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage());
+        }
+    }
+    
 }

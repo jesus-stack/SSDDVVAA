@@ -1,4 +1,5 @@
 
+
 --Creacion de Base de Datos--
 create database SDVA
 go
@@ -111,7 +112,7 @@ descripcion varchar(70),
 foto varchar(max),
 precio float,
 cantidadMinimaVenta int,
-estado bit
+estado bit default(1)
 )
 
 
@@ -387,10 +388,44 @@ insert into producto(nombre,descripcion,foto,precio,CantidadMinimaVenta) values 
 end
 go
 
+create procedure ActualizarProductos 
+@id int,
+@nombre varchar(20),
+@descripcion varchar(70),
+@foto varchar(max),
+@precio float,
+@cantidadMinima int
+as
+begin
+update Producto
+set nombre=@nombre,descripcion=@descripcion,foto=@foto,precio=@precio,CantidadMinimaVenta=@CantidadMinima
+where id=@id;
+end
+go
+
+create procedure elminarProducto
+@id int
+as
+begin
+update Producto
+set estado=0
+where id=@id;
+end
+go
+
+
 create procedure SeleccionarProductos
 as
 begin 
 select * from producto
+end
+go
+
+create procedure SeleccionarProductoXid
+@id int
+as
+begin 
+select * from producto where producto.id=@id
 end
 go
 

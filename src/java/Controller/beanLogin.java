@@ -25,9 +25,8 @@ import javax.faces.context.FacesContext;
 public class beanLogin implements Serializable {
 private static Usuario usuario=new Usuario(1, "admin", true, new TipoUsuario(1, "administrador"));
 private boolean mantenimiento,facturacion,pedidos,reportes;
-    /**
-     * Creates a new instance of beanLogin
-     */
+
+
     public beanLogin() {
     }
 
@@ -56,6 +55,7 @@ private boolean mantenimiento,facturacion,pedidos,reportes;
     }
 
     public boolean isFacturacion() {
+   
         boolean resultado=false;
         if(usuario.getTipo()!=null){
            if(usuario.getTipo().getId()==1||usuario.getTipo().getId()==3){
@@ -135,7 +135,9 @@ private boolean mantenimiento,facturacion,pedidos,reportes;
         }
   }
     
-   
+   public void cerrarSesion(){
+       this.setUsuario(new Usuario());
+   }
 }
 
 

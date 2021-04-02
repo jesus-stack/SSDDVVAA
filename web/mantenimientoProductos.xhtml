@@ -27,11 +27,13 @@
                   <br/>
                   <br/>
            
-                  <p:panelGrid columns="1">
-                      <p:commandButton  value="Guardar" ajax="false" actionListener="#{beanProducto.AgregarProducto()}" style="font-size: 13px"  icon="fa fa-save ">
+                  <p:panelGrid columns="2" >
+                      <p:commandButton  value="Guardar" ajax="false" actionListener="#{beanProducto.AgregarProducto()}" styleClass="btn"  icon="fa fa-save ">
                       </p:commandButton>
-                      <p:commandButton  value="Buscar"  style="font-size: 14px"  icon="fas fa-search" />
-                        <p:commandButton  value="Ayuda" style="font-size: 15px"  icon="fas fa-question" />
+                      <p:commandButton  value="Nuevo"  ajax="false" actionListener="#{beanProducto.nuevo()}" styleClass="btn new"  icon="fa fa-save ">
+                      </p:commandButton>
+                      <p:commandButton  value="Buscar"  styleClass="btn new"  icon="fas fa-search" />
+                        <p:commandButton  value="Ayuda" styleClass="btn help"   icon="fas fa-question" />
                   
                   </p:panelGrid>
                  
@@ -55,7 +57,7 @@
                       
                     </table>
                 </center>
-                <p:dataTable  widgetVar="tabla" value="#{beanProducto.lista}" var="pro" >
+                <p:dataTable styleClass="tablamantenimiento"  widgetVar="tabla" value="#{beanProducto.lista}" var="pro" >
                   
                     <p:column class="table" headerText="Nombre">
                     <h:outputText value="#{pro.nombre}"></h:outputText>
@@ -64,25 +66,25 @@
                      <h:outputText value="#{pro.descripcion}"></h:outputText>
                 </p:column>
                  <p:column headerText="Precio">
-                     <h:outputText value="#{pro.estado}"></h:outputText>
+                     <h:outputText value="#{pro.precio}"></h:outputText>
                 </p:column >
                     <p:column headerText="Minima Venta" style="width: 35px">
                      <h:outputText value="#{pro.cantidadMinimaVenta}"></h:outputText>
                 </p:column>
-                 <p:column headerText="Imagen">
+                <p:column style="width: 150px" headerText="Imagen">
                      <p:graphicImage library="img" class="imagen" name="#{pro.foto}"></p:graphicImage>
                 </p:column>
                
-                <p:column  headerText="Editar" style="width: 80px">
+                <p:column  style="width: 80px">
                    
                              <h:form>
                                  <p:commandButton icon="fas fa-edit" value="Editar" ajax="false" actionListener="#{beanProducto.editarProducto(pro)}" styleClass="btnedit"></p:commandButton>
                                
                              </h:form>           
                 </p:column>
-                <p:column headerText="Eliminar" style="width: 85px">
+                <p:column style="width: 85px">
                                 <h:form>
-                                   <p:commandButton icon="fas fa-trash-alt" value="Eliminar" styleClass="btndelete"></p:commandButton>
+                                    <p:commandButton icon="fas fa-trash-alt" ajax="false" actionListener="#{beanProducto.EliminarProducto(pro)}" value="Eliminar" styleClass="btndelete"></p:commandButton>
                                 </h:form>
                             </p:column>     
                       

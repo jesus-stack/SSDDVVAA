@@ -16,8 +16,9 @@
         <h:outputStylesheet library="css" name="log.css"></h:outputStylesheet>
         <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
         <link rel="icon" href="resources/img/icono.jpeg"></link>
+        <h:outputStylesheet library="css" name="etiquetas.css"></h:outputStylesheet>
 
-        <title>Sistena Digital de Ventas de Alimentos</title>
+        <title>Sistema</title>
         <h:outputStylesheet library="css" name="menu.css"/>
     </h:head>
 
@@ -93,7 +94,7 @@
             <h:form>
                 <p:tabMenu  activeIndex="#{param.i}">
 
-                    <p:menuitem  outcome="/index">
+                    <p:menuitem  id="menu" outcome="/index">
                         <f:param name="i" value="0"/>
                         <h:graphicImage class="logo" library="img" name="SDVA.jpeg"></h:graphicImage>  
                     </p:menuitem>
@@ -129,12 +130,13 @@
                         <p:graphicImage class="icon"  library="img" name="reporte.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Reportes"></h:outputLabel>
                     </p:menuitem> 
-                    <p:menuitem class="shopcart">
+                
+                    <p:menuitem outcome="/carrito" class="shopcart">
                         <i class="fa fa-cart-plus fa-3x" style="color: black"></i>
                          <p:outputLabel class="labelc" value="2"></p:outputLabel>
                     </p:menuitem>
                    
-                    <p:menuitem  class="login" onclick="PF('log').show()">
+                    <p:menuitem rendered="#{!(beanLogin.reportes)}"  class="login" onclick="PF('log').show()">
                         <p:graphicImage class="icon"  library="img" name="login.png"></p:graphicImage>
                         <h:outputLabel class="itemlabel" value="Ingresar"></h:outputLabel>
                     </p:menuitem> 
@@ -143,6 +145,17 @@
                         <h:outputLabel class="itemlabel" value="Registrar"></h:outputLabel>
                     </p:menuitem> 
                 </p:tabMenu>
+                <p:panel rendered="#{beanLogin.reportes}" class="log-container">
+             
+                    <h:outputLabel class="itemlabel fas fa-user fa-3x"></h:outputLabel>
+                    <div class="log-subcontainer">
+                        <h:outputLabel class="itemlabellog" value="Jesus Castilla"></h:outputLabel>
+                        <p:commandButton icon="fas fa-sign-out-alt" ajax="false" update="menu" immediate="true" actionListener="#{beanLogin.cerrarSesion()}" value="Cerrar Sesión">
+                           
+                        </p:commandButton>
+          
+                </div>
+</p:panel>
             </h:form>
         </div>
         <div>

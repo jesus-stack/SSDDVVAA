@@ -66,7 +66,7 @@ width: 200px;
 .shopcart{
   position: fixed;
     right: 0vw;
-    top: 10vh;
+    top: 7vh;
 
 }
 .labelc{
@@ -110,3 +110,32 @@ width: 200px;
     color: black;
     text-decoration: underline;
 }
+.log-container{
+    position: absolute !important;
+    width: 80px !important;
+    height: 60px;
+    text-align: center;
+      right: 40vw;
+    top: 0vh;
+    border-radius: 20%;
+    background-color:#2191C0 ;
+    background-image: none;
+}
+.log-container:hover .log-subcontainer{
+    display: block;
+}
+.log-subcontainer{
+   display: none;
+      background-color:#2191C0 ;
+    background-image: none ;
+      width: 150px;
+    height: 100px;
+    border-radius: 20%;
+}
+.itemlabellog{
+    color: black ;
+   font-weight: bold;
+   font-size: 25px;
+   margin-bottom: 10px;
+}
+
