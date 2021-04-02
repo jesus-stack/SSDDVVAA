@@ -440,7 +440,7 @@ end
 go
 
 --procedure Transaccion--
-create procedure InsertarTransaccion
+
 
 
 --insert de provincia,cantones,distritos,barrios
