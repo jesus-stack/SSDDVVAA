@@ -234,8 +234,8 @@ insert into tipoUsuario (id,descripcion) values(3,'Cajero')
 insert into tipoUsuario (id,descripcion) values(4,'Bodeguero')
 
 --insertar cliente--
-insert into usuario(id,contrasenna,estado,tipoUsuario) values (777777,encryptbypassphrase('password','cli'),1,3)
-Insert into cliente (id,nombre,sNombre,apellido,sApellido,correo,telefono) values(155821845336,'Lucia','Carolina','Castilla','Quiroz','karol.casty@gmail.com',70936299)
+insert into usuario(id,contrasenna,estado,tipoUsuario) values (7777777,encryptbypassphrase('password','cli'),1,2)
+Insert into cliente (id,nombre,sNombre,apellido,sApellido,correo,telefono) values(7777777,'Lucia','Carolina','Castilla','Quiroz','karol.casty@hotmail.com',71385759)
 
 --Insertar administrador
 insert into usuario(id,contrasenna,estado,tipoUsuario) values (155821845336,encryptbypassphrase('password','admin'),1,1)
