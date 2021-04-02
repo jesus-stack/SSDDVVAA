@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <h:outputStylesheet library="css" name="index.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="menu.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="mantenimiento.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="log.css"></h:outputStylesheet>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+        <link rel="icon" href="resources/img/icono.jpeg"></link>
+        <h:outputStylesheet library="css" name="etiquetas.css"></h:outputStylesheet>
+
+        <title>Sistema</title>
+        <h:outputStylesheet library="css" name="menu.css"/>
+    </h:head>
+
+    <h:body class="body">
+      
+        <p:growl id="msg" showDetail="true"></p:growl>
+        <div id="top">
+        
+         
+            <p:dialog class="log" header="Registar" widgetVar="sign"  showEffect="fade" modal="true">
+              
+                    <h:form>
+                       
+                        <table>
+                            <tr>
+                               <td><p:outputLabel class="label" value="Identificacion"></p:outputLabel><br/>
+                                   <p:inputText value="#{beanCliente.cliente.identificacion}"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel class="label" value="Primer Nombre"></p:outputLabel><br/>
+                                    <p:inputText value="#{beanCliente.cliente.nombre}"></p:inputText></td>
+                                <td><p:outputLabel class="label" value="Segundo Nombre"></p:outputLabel><br/>
+                                    <p:inputText value="#{beanCliente.cliente.segundoNombre}"></p:inputText></td>
+                            </tr>
+                               <tr>
+                                <td><p:outputLabel class="label" value="Primer Apellido"></p:outputLabel><br/>
+                                    <p:inputText  value="#{beanCliente.cliente.apellido}"></p:inputText></td>
+                                <td><p:outputLabel class="label" value="Segundo Apellido"></p:outputLabel><br/>
+                                    <p:inputText value="#{beanCliente.cliente.segundoApellido}"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel class="label" value="Telefono"></p:outputLabel><br/>
+                                    <p:inputText value="#{beanCliente.cliente.telefono}"></p:inputText></td>
+                            </tr>
+                             <tr>
+                                <td><p:outputLabel class="label" value="Correo"></p:outputLabel><br/>
+                                    <p:inputText value="#{beanCliente.cliente.correo}"></p:inputText></td>
+                            </tr>
+                             <tr>
+                                <td><p:outputLabel class="label" value="Contraseña"></p:outputLabel><br/>
+                                    <p:inputText value="#{beanCliente.cliente.contrasenna}"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><p:commandButton value="Cancelar"  type="reset"></p:commandButton>
+                                    <p:commandButton value="Registrar" actionListener="#{beanCliente.insertarCliente()}" ajax="false"> </p:commandButton></td>
+                            </tr>
+                        </table>
+                               
+                           
+                      
+                    </h:form>
+             
+            </p:dialog>
+            <p:dialog class="log" header="Ingresar" widgetVar="log"  showEffect="fade" modal="true">
+                <div class="logleft">
+                    <p:graphicImage library="img" class="logo" name="login_1.png"></p:graphicImage>
+                </div>
+                <div class="logright">
+                    <h:form>
+                       
+                        <p:outputLabel class="label" value="Idenificacion"></p:outputLabel><br/>
+                            <p:inputText value="#{beanLogin.usuario.id}"></p:inputText><br/>
+                         <p:outputLabel class="label" value="Contraseña"></p:outputLabel><br/>
+                             <p:password value="#{beanLogin.usuario.contrasenna}"></p:password><br/><br/><br/>
+                             <p:commandButton value="Cancelar"  type="reset"></p:commandButton>
+                             <p:commandButton value="Registrar" ajax="false" action="#{beanLogin.validarUsuario()}"> </p:commandButton>
+                          
+                    </h:form>
+                </div>
+            </p:dialog>
+
+            <h:form>
+                <p:tabMenu  activeIndex="#{param.i}">
+
+                    <p:menuitem  id="menu" outcome="/index">
+                        <f:param name="i" value="0"/>
+                        <h:graphicImage class="logo" library="img" name="SDVA.jpeg"></h:graphicImage>  
+                    </p:menuitem>
+
+                    <p:menuitem class="tabitem" outcome="/Producto">
+                        <f:param name="i" value="1"/>
+                        <p:graphicImage class="icon"  library="img" name="producto.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Productos"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem  class="tabitem" outcome="/pedidos" rendered="#{beanLogin.pedidos}">
+                        <f:param name="i" value="2"/>
+                        <p:graphicImage class="icon"  library="img" name="pedido.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Pedidos" ></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem class="tabitemm" outcome="/Mantenimiento" rendered="#{beanLogin.mantenimiento}">
+                        <f:param name="i" value="3"/>
+                        <p:graphicImage class="icon"  library="img" name="mantenimiento.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Mantenimiento"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem class="tabitem" rendered="#{beanLogin.facturacion}" outcome="/Facturar">
+                        <f:param name="i" value="4"/>
+                        <p:graphicImage class="icon"  library="img" name="facturacion.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Facturar"></h:outputLabel>
+                    </p:menuitem> 
+                     <p:menuitem class="tabitem" rendered="#{beanLogin.facturacion}" outcome="/Despacho">
+                        <f:param name="i" value="5"/>
+                        <p:graphicImage class="icon" url="https://image.flaticon.com/icons/png/512/99/99020.png"
+                                        ></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Despachar"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem class="tabitem" outcome="/Reportes" rendered="#{beanLogin.reportes}">
+                        <f:param name="i" value="6"/>
+                        <p:graphicImage class="icon"  library="img" name="reporte.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Reportes"></h:outputLabel>
+                    </p:menuitem> 
+                
+                    <p:menuitem outcome="/carrito" class="shopcart">
+                        <i class="fa fa-cart-plus fa-3x" style="color: black"></i>
+                         <p:outputLabel class="labelc" value="2"></p:outputLabel>
+                    </p:menuitem>
+                   
+                    <p:menuitem rendered="#{!(beanLogin.reportes)}"  class="login" onclick="PF('log').show()">
+                        <p:graphicImage class="icon"  library="img" name="login.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Ingresar"></h:outputLabel>
+                    </p:menuitem> 
+                    <p:menuitem class="signin" onclick="PF('sign').show()">
+                        <p:graphicImage class="icon"  library="img" name="signin.png"></p:graphicImage>
+                        <h:outputLabel class="itemlabel" value="Registrar"></h:outputLabel>
+                    </p:menuitem> 
+                </p:tabMenu>
+                <p:panel rendered="#{beanLogin.reportes}" class="log-container">
+             
+                    <h:outputLabel class="itemlabel fas fa-user fa-3x"></h:outputLabel>
+                    <div class="log-subcontainer">
+                        <h:outputLabel class="itemlabellog" value="Jesus Castilla"></h:outputLabel>
+                        <p:commandButton icon="fas fa-sign-out-alt" ajax="false" update="menu" immediate="true" actionListener="#{beanLogin.cerrarSesion()}" value="Cerrar Sesión">
+                           
+                        </p:commandButton>
+          
+                </div>
+</p:panel>
+            </h:form>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left"></ui:insert>
+            </div>
+            <div>
+                <div id="right">
+                  
+                     
+                    
+                    <ui:insert name="right"></ui:insert>
+                </div>
+                <div id="content" class="right_content">
+                
+                    <ui:insert name="content"></ui:insert>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="bottom" style="margin-top: 5vh">
+            <div>
+                <h2>Sistema Digital de Ventas de Limentos</h2>
+
+                <h3>alimentos al alcance de un click</h3>
+                <p>Telefono: 8877-6655  Correo: atencioncliente@sdva.cr</p>
+
+            </div>
+
+        </div>
+<script src="https://kit.fontawesome.com/a581a77243.js" crossorigin="anonymous"></script>
+    </h:body>
+
+</html>

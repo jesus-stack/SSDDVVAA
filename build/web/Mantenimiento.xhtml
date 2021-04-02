@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="/frame.xhtml">
+          
+
+            <ui:define name="right">
+               
+        
+    <h:form>
+    <p:tieredMenu style="width: 300px">   
+            <p:menuitem class="mantenimiento" outcome="/MantenimientoUsuarios">
+                    <p:graphicImage class="icon"  library="img" name="usuario.png"></p:graphicImage>
+                    <h:outputLabel class="itemlabelM" value="Usuarios"></h:outputLabel>
+                  
+                </p:menuitem>
+        <p:menuitem class="mantenimiento" outcome="/mantenimientoProductos">
+                    <p:graphicImage class="icon"  library="img" name="producto.png"></p:graphicImage>
+                    <h:outputLabel class="itemlabelM" value="Productos"></h:outputLabel>
+                </p:menuitem>
+        </p:tieredMenu>
+    </h:form>
+
+            </ui:define>
+
+            <ui:define name="content">
+              
+                <center>  <table border="0" cellspacing="36" cellpadding="15">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h>Mantenimiento del sistema digital de ventas</h>
+                                
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h2>Aqui podras administrar la informacion que necesitas para tu negocio 
+                                    </h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+</center>                  
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

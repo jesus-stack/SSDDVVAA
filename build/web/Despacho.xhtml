@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./frame.xhtml">
+
+            <ui:define name="content">
+               <center> <table border="0" cellspacing="36" cellpadding="15">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h>Despacho de pedidos</h>
+                                
+                                </th>
+                            </tr>
+                        </thead>
+                      
+                    </table></center>
+                <p:dataTable  value="#{beanProducto.lista}" var="pro" >
+                  
+                <p:column headerText="Número de pedido">
+                    <h:outputText value="#{pro.nombre}"></h:outputText>
+                </p:column>
+                 <p:column  headerText="Cliente">
+                     <h:outputText value="#{pro.descripcion}"></h:outputText>
+                </p:column>
+                        <p:column style="width: 120px"  headerText="Productos">
+                         <h:form>
+                         <p:selectBooleanCheckbox disabled="true"></p:selectBooleanCheckbox>
+                         </h:form>
+                </p:column>
+                        <p:column style="width: 120px"  headerText="Total pedido">
+                         <h:form>
+                         <p:selectBooleanCheckbox disabled="true"></p:selectBooleanCheckbox>
+                         </h:form>
+                </p:column>
+                 
+                 
+                    <p:column style="width: 70px"  headerText="Estado">
+                         <h:form>
+                         <p:selectBooleanCheckbox disabled="true"></p:selectBooleanCheckbox>
+                         </h:form>
+                </p:column>
+                 
+                    <p:column headerText="Despachar"  style="width: 100px">
+                             <h:form>
+                 <p:menuitem class="Despa" >
+                    <p:graphicImage class="icon"  library="img" name="editar.png"></p:graphicImage>
+                    <h:outputLabel class=" itemlabelM itemlabelMIE" value="Editar"></h:outputLabel>
+                    
+                </p:menuitem>
+                                   </h:form>
+                              </p:column>
+               
+                   
+              
+                    </p:dataTable>
+               
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -8,7 +8,6 @@ package Controller;
 import DAO.Conexion.SNMPExceptions;
 import DAO.ProductoDB;
 import Model.Producto;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -16,8 +15,8 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import org.primefaces.model.DefaultStreamedContent;
-import org.primefaces.model.StreamedContent;
+import org.primefaces.component.fileupload.FileUpload;
+import org.primefaces.model.file.UploadedFile;
 
 /**
  *
@@ -30,6 +29,7 @@ private Producto producto=new Producto();
 
 private LinkedList<Producto> lista;
 private LinkedList<Producto> listaCodigo;
+private UploadedFile imagen;
 
     public LinkedList<Producto> getListaCodigo() {
         return llenarLista();
@@ -41,6 +41,14 @@ private LinkedList<Producto> listaCodigo;
 
 
     public beanProducto() {
+    }
+
+    public UploadedFile getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(UploadedFile imagen) {
+        this.imagen = imagen;
     }
    
 
@@ -68,7 +76,7 @@ private LinkedList<Producto> listaCodigo;
     
     public void AgregarProducto() throws IOException, SNMPExceptions{
         try{
-            
+          producto.setFoto(imagen.getFileName());
   ProductoDB.AgregarProducto(producto);
       FacesMessage message=new FacesMessage(FacesMessage.SEVERITY_INFO,"EXITO", "\nProducto registrado ");
           FacesContext.getCurrentInstance().addMessage("msg", message);

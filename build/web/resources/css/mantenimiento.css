@@ -1,0 +1,39 @@
+.label{
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+.table{
+    min-width: 35px;
+    max-width: 200px;
+}
+.imagen{
+    width: 150px;
+    height: 100px;
+    border-radius: 10%;
+}
+.btnedit{
+    background-color: white !important;
+        color: green !important;
+     
+        background-image: none !important;
+}
+
+.btndelete{
+    background-color: white !important;
+        color: red !important;
+     
+        background-image: none !important;
+}
+.tablamantenimiento{
+    width: 80% !important;
+    margin: auto !important;
+}
+.btn{
+    font-size: 14px !important;
+    width: 100px !important;
+}
+.help{
+    background-color: goldenrod !important;
+    background-image: none !important;
+}

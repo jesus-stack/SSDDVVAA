@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+            <ui:composition template="/frame.xhtml">
+  
+             <ui:define name="left">
+                
+                 <h:form >
+                  
+                     <p:outputLabel class="label" for="name" value="Identificacion"></p:outputLabel>
+                     <p:inputText id="name" value="#{beanProducto.producto.nombre}"></p:inputText>
+                  <p:outputLabel class="label" for="dsc" value="Contraseña"></p:outputLabel>
+                  <p:inputText id="dsc" value="#{beanProducto.producto.descripcion}"></p:inputText>
+                  <br/>
+             
+                  <br/>
+                  <p:selectBooleanCheckbox class="label" id="estado" itemLabel="Estado"></p:selectBooleanCheckbox>
+                  <br/>
+                  <p:selectOneMenu><f:selectItem itemLabel="administrador"></f:selectItem>
+                      <f:selectItem itemLabel="cliente"></f:selectItem>
+                   <f:selectItem itemLabel="cajero"></f:selectItem>
+                   <f:selectItem itemLabel="bodeguero"></f:selectItem></p:selectOneMenu>
+                  <br/>
+                  <br/>
+                 
+                   <p:growl showDetail="true"></p:growl>
+               
+                     <p:panelGrid columns="1">
+                      <p:commandButton  value="Guardar" ajax="false" style="font-size: 13px"  icon="fa fa-save ">
+                      </p:commandButton>
+                       <p:commandButton  value="Buscar" style="font-size: 14px"  icon="fas fa-search" />
+                        <p:commandButton  value="Ayuda" style="font-size: 15px"  icon="fas fa-question" />
+                  
+                  </p:panelGrid>
+                 </h:form>
+                 
+            </ui:define>
+
+        
+
+            <ui:define name="content">
+             <center><table border="0" cellspacing="36" cellpadding="15">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h>Mantenimiento de Usuarios</h>
+                                
+                                </th>
+                            </tr>
+                        </thead>
+                      
+                    </table>
+                </center>
+                <p:dataTable  value="#{beanUsuario.usuarios}" var="user" >
+                  
+                <p:column headerText="Identificacion">
+                    <h:outputText value="#{user.id}"></h:outputText>
+                </p:column>
+                 <p:column  headerText="Contraseña">
+                     <h:outputText value="#{user.contrasenna}"></h:outputText>
+                </p:column>
+                    <p:column style="width: 70px"  headerText="Estado">
+                         <h:form>
+                             <p:selectBooleanCheckbox value="#{user.estado}" disabled="true"></p:selectBooleanCheckbox>
+                         </h:form>
+                </p:column>
+                 <p:column  headerText="Tipo Usuario">
+                     <h:outputText value="#{user.tipo.descripcion}"></h:outputText>
+                </p:column>
+                    <p:column headerText="Editar"  style="width: 100px">
+                             <h:form>
+                 <p:menuitem class="mantenimiento" >
+                    <p:graphicImage class="icon"  library="img" name="editar.png"></p:graphicImage>
+                    <h:outputLabel class=" itemlabelM itemlabelMIE" value="Editar"></h:outputLabel>
+                    
+                </p:menuitem>
+                                   </h:form>
+                              </p:column>
+                <p:column headerText="Eliminar" style="width: 100px">
+                                <h:form>
+                                 <p:menuitem class="mantenimiento" >
+                    <p:graphicImage class="icon"  library="img" name="eliminar.png"></p:graphicImage>
+                    <h:outputLabel class=" itemlabelM itemlabelMID" value="Eliminar"></h:outputLabel>
+                    
+                </p:menuitem>
+                                </h:form>
+                            </p:column>     
+                      
+                   
+              
+                    </p:dataTable>
+                   
+               
+            </ui:define>
+                <ui:define name="right">
+                    <h:form>
+    <p:tieredMenu style="width: 300px">   
+            <p:menuitem class="mantenimiento" outcome="/MantenimientoUsuarios">
+                    <p:graphicImage class="icon"  library="img" name="usuario.png"></p:graphicImage>
+                    <h:outputLabel class="itemlabelM" value="Usuarios"></h:outputLabel>
+                  
+                </p:menuitem>
+        <p:menuitem class="mantenimiento" outcome="/mantenimientoProductos">
+                    <p:graphicImage class="icon"  library="img" name="producto.png"></p:graphicImage>
+                    <h:outputLabel class="itemlabelM" value="Productos"></h:outputLabel>
+                </p:menuitem>
+        </p:tieredMenu>
+    </h:form>
+                </ui:define>
+             
+
+        </ui:composition>
+
+    </body>
+</html>

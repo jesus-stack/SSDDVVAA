@@ -1,0 +1,141 @@
+.logo{
+   border-radius: 50%;
+   width: 100px;
+}
+@keyframes expanditem{
+    from{width:18px;}
+    to{width: 150px;}
+}
+@keyframes expanditemm{
+   
+    from{width:18px;}
+    to{width:200px;}
+    
+}
+.tabitem{
+    width: 18px;
+    overflow: hidden;
+}
+.tabitem:hover{
+animation-name: expanditem;
+animation-duration : 2s;
+
+width: 150px;
+}
+.tabitemm{
+    width: 18px;
+    overflow: hidden;
+}
+.tabitemm:hover{
+  animation-name: expanditemm;
+animation-duration: 2s;
+width: 200px;
+
+}
+.icon{
+    width: 20px;
+}
+
+
+
+.itemlabel{
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: bold;
+  cursor: pointer;
+
+}
+
+.itemlabelM{
+    font-size: 2opx;
+    margin-left: 8px;
+    color: white;
+    font-weight: bold;
+      cursor: pointer;
+
+}
+
+
+.login:hover{
+    background-color: #A1D8F1;
+     animation-name: expanditem;
+    animation-duration: 2s;
+    width: 150px
+}
+
+.shopcart{
+  position: fixed;
+    right: 0vw;
+    top: 7vh;
+
+}
+.labelc{
+    color: brown;
+    font-size: 40px;
+}
+.login{
+    position: fixed;
+    overflow: hidden;
+    right: 5vw;
+    top: 0vh;
+    width: 18px;
+    background-color: #2E90BD;
+}
+.signin:hover{
+    background-color: #A1D8F1;
+    animation-name: expanditem;
+    animation-duration: 2s;
+    width: 150px
+}
+.signin{
+    position: fixed;
+    overflow: hidden;
+    right: 0vw;
+    top: 0vh;
+     width: 18px;
+    background-color: #2E90BD;
+}
+.mantenimiento{
+        background-color: #2E90BD;
+        margin-top: 5px;
+        color: white;
+        font-weight: bold;
+}
+.mantenimiento:hover{
+
+    background-color: #A1D8F1;
+    
+}
+    .itemlabelM:hover{
+    color: black;
+    text-decoration: underline;
+}
+.log-container{
+    position: absolute !important;
+    width: 80px !important;
+    height: 60px;
+    text-align: center;
+      right: 40vw;
+    top: 0vh;
+    border-radius: 20%;
+    background-color:#2191C0 ;
+    background-image: none;
+}
+.log-container:hover .log-subcontainer{
+    display: block;
+}
+.log-subcontainer{
+   display: none;
+      background-color:#2191C0 ;
+    background-image: none ;
+      width: 150px;
+    height: 100px;
+    border-radius: 20%;
+}
+.itemlabellog{
+    color: black ;
+   font-weight: bold;
+   font-size: 25px;
+   margin-bottom: 10px;
+}
+

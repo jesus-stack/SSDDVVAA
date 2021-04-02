@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./frame.xhtml">
+
+            <ui:define name="content">
+              <h:form id="form">
+                  <p:dataView var="product" value="#{beanProducto.lista}" rows="12" paginator="true"
+                    rowsPerPageTemplate="6,12,16" layout="grid"
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    >
+
+            <p:dataViewGridItem>
+                <div class="product-grid-item card border-1" style="padding: 1%;border: solid 2px skyblue;min-height: 35vh;">
+                    <div class="product-grid-item-top">
+                        <center>
+                            <i class="pi pi-tag product-category-icon"/>
+                            <span class="product-category">#{product.nombre}</span>
+                        </center>
+                      
+                    </div>
+                    <center>
+                    <div  class="product-grid-item-content" >
+                        <p:graphicImage library="img" class="logo" name="#{product.foto}"/>
+                        <div class="product-name">#{product.cantidadMinimaVenta}</div>
+                        <div class="product-description">#{product.descripcion}</div>
+                     
+                    </div>
+                    </center>
+                    <div class="product-grid-item-bottom">
+                        <h:outputText  value="₡ #{product.precio}" styleClass="product-price product-price-pedido">
+                            <f:convertNumber currencySymbol="" type="currency"/>
+                        </h:outputText>
+                    
+                        <p:commandButton style="float:right;margin-top:10vh" type="button"
+                                            value="Añadir al Carrito"
+                                            icon="pi pi-shopping-cart"
+                                            disabled="#{product.nombre == 'OUTOFSTOCK'}">
+                        </p:commandButton>
+                    </div>
+                </div>
+            </p:dataViewGridItem>
+        </p:dataView>
+              </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

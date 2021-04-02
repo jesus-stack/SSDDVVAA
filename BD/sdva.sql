@@ -220,12 +220,22 @@ alter table ClienteDireccion
 add constraint FK_clienteDirecccion_DiaI foreign key ( diaFinal)references dia(id);
 go
 
+--Insert tipo Transaccion--
+insert into tipoTransaccion values (1,'Pendiente')
+insert into tipoTransaccion values (2,'Solicitado')
+insert into tipoTransaccion values (3,'Facturado')
+insert into tipoTransaccion values (4,'Procesado')
+
 
 ---Insert Tipos de usuarios
 insert into tipoUsuario (id,descripcion) values(1,'Administrador')
 insert into tipoUsuario (id,descripcion) values(2,'Cliente')
 insert into tipoUsuario (id,descripcion) values(3,'Cajero')
 insert into tipoUsuario (id,descripcion) values(4,'Bodeguero')
+
+--insertar cliente--
+insert into usuario(id,contrasenna,estado,tipoUsuario) values (777777,encryptbypassphrase('password','cli'),1,3)
+Insert into cliente (id,nombre,sNombre,apellido,sApellido,correo,telefono) values(155821845336,'Lucia','Carolina','Castilla','Quiroz','karol.casty@gmail.com',70936299)
 
 --Insertar administrador
 insert into usuario(id,contrasenna,estado,tipoUsuario) values (155821845336,encryptbypassphrase('password','admin'),1,1)
@@ -428,6 +438,10 @@ begin
 select * from producto where producto.id=@id
 end
 go
+
+--procedure Transaccion--
+create procedure InsertarTransaccion
+
 
 --insert de provincia,cantones,distritos,barrios
 

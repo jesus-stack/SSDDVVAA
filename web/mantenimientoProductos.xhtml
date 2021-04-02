@@ -11,7 +11,7 @@
   
              <ui:define name="left">
               
-                 <h:form >
+                 <h:form enctype="multipart/form-data" >
                   
                      <p:outputLabel class="label" for="name" value="Nombre"></p:outputLabel>
                  <p:inputText id="name" value="#{beanProducto.producto.nombre}"></p:inputText>
@@ -22,8 +22,8 @@
                    <p:outputLabel class="label" for="min" value="Minima Venta"></p:outputLabel>
                    <p:inputNumber id="min" value="#{beanProducto.producto.cantidadMinimaVenta}"></p:inputNumber>
                   <p:outputLabel class="label" for="img" value="Imagen"></p:outputLabel>
-                  <p:inputText id="img" value="#{beanProducto.producto.foto}"></p:inputText>
-                  <p:outputLabel   value="Ejemplo:imagen.Png"></p:outputLabel>
+                  <p:fileUpload skinSimple="true" mode="simple" id="img" label="Imagen" value="#{beanProducto.imagen}" immediate="true"></p:fileUpload>
+           
                   <br/>
                   <br/>
            
